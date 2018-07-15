@@ -8,10 +8,10 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="2018-7-15"/>
+  <meta property="og:title" content="saierti"/>
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="saierti"/>
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="http://yoursite.com"/>
   
     <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
@@ -35,7 +35,8 @@
 </head>
 
   <body>
-    <!-- Page Header -->
+    <!-- Archive Header -->
+<!-- Page Header -->
 
 
 <header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
@@ -43,7 +44,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">2018-7-15</p>
+          <p class="title">Blog Archives</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -88,59 +89,34 @@
   </div>
 </header>
 
-<article>
-  <div class="container typo">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="post-info text-muted">
-          
-            <!-- Author -->
-            <span class="author info">By John Doe</span>
-          
-          <!-- Date -->
-          <span class="date-time info">On
-            <span class="date">2018-07-16</span>
-            <span class="time">01:20:42</span>
-          </span>
-          
-        </div>
-        <!-- Tags -->
-        
-          <div class="post-tags text-muted">
-            Tags: 
+<!-- Archive List -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      
+        <div class="archive-item">
+  <a href="/2018/07/16/引用类型/" class="post-title">
+    引用类型
+  </a>
+  <div class="date text-muted">Posted on 2018-07-16 01:19:20</div>
+</div>
 
-<a class="tag" href="/tags/杂记/">#杂记</a>
+      
 
-
-          </div>
-        
-        <!-- Post Main Content -->
-        <div class="post-content">
-          <p>var,let,const<br>作用域链，垃圾收集<br>浅拷贝和深拷贝<br><a id="more"></a></p>
-<h2 id="var-let-const"><a href="#var-let-const" class="headerlink" title="var,let,const"></a>var,let,const</h2><h3 id="var"><a href="#var" class="headerlink" title="var:"></a>var:</h3><p>var定义的变量可以修改，如果不初始化会输出undefined，不会报错。可以变量提升。</p>
-<h3 id="let："><a href="#let：" class="headerlink" title="let："></a>let：</h3><p>是块级作用域，函数内部使用let定义后，对函数外部无影响。</p>
-<h3 id="const："><a href="#const：" class="headerlink" title="const："></a>const：</h3><p>const定义的变量不可以修改，而且必须初始化，当定义了对象时，则为绑定了对象的地址，地址不可更改。</p>
-<h2 id="作用域链："><a href="#作用域链：" class="headerlink" title="作用域链："></a>作用域链：</h2><p>决定了变量的访问权限，环境变量可以一级一级地向上追溯， 可以访问它的上级环境（变量或函数），注意是一级一级地追溯的。</p>
-<h2 id="垃圾收集方法："><a href="#垃圾收集方法：" class="headerlink" title="垃圾收集方法："></a>垃圾收集方法：</h2><ol>
-<li>标记方法</li>
-<li>引用计数法</li>
-</ol>
-<h2 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h2><h3 id="浅拷贝实现方法："><a href="#浅拷贝实现方法：" class="headerlink" title="浅拷贝实现方法："></a>浅拷贝实现方法：</h3><ol>
-<li>for in 遍历一个一个复制</li>
-<li>Object.assign（a,b）将b复制到a</li>
-</ol>
-<h3 id="深拷贝实现方法："><a href="#深拷贝实现方法：" class="headerlink" title="深拷贝实现方法："></a>深拷贝实现方法：</h3><ol>
-<li>一个一个手动复制</li>
-<li>若对象只有一层时，使用Object.assign()可以实现深拷贝。</li>
-<li>转成Jason再转回来</li>
-<li>递归拷贝</li>
-</ol>
-
-        </div>
-      </div>
     </div>
   </div>
-</article>
+</div>
+<!-- Pagination -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-md-10 col-md-offset-1">
+      <ul class="pagination">
+          
+          
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 

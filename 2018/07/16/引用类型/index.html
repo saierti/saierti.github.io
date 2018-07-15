@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="引用类型"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">引用类型</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-07-16</span>
+            <span class="time">01:20:42</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/引用类型/">#引用类型</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>引用类型<br><a id="more"></a></p>
+<h2 id="对象：访问对象属性的两种方法"><a href="#对象：访问对象属性的两种方法" class="headerlink" title="对象：访问对象属性的两种方法"></a>对象：访问对象属性的两种方法</h2><pre><code>1. alert（person.name）;点表示法，最常用的方法
+2. alert（person.[&quot;name&quot;]）;方括号表示法的优点是可以通过变量名来访问属性。
+</code></pre><h2 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h2><h3 id="检测方法："><a href="#检测方法：" class="headerlink" title="检测方法："></a>检测方法：</h3><ul>
+<li>instanceof<h3 id="转换方法："><a href="#转换方法：" class="headerlink" title="转换方法："></a>转换方法：</h3><ul>
+<li>toString();</li>
+<li>toLocalString();</li>
+<li>valueOf();</li>
+<li>split(separator,howmany):用于把一个字符串分割成字符串数组.separator    :字符串或正则表达式，从该参数指定的地方分割 stringObject。howmany：该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。</li>
+</ul>
+</li>
+</ul>
+<h3 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h3><ul>
+<li>push():可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后的数组长度。</li>
+<li>pop()    :从数组末尾移除最后一项，返回移除的项。</li>
+</ul>
+<h3 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h3><ul>
+<li>shift()：移除数组中的第一个项并返回该项。</li>
+<li>unshift()：在数组前端添加任意个项并返回新数组的长度。</li>
+</ul>
+<h3 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h3><ul>
+<li>reverse(): 反转数组项的顺序。</li>
+<li>sort()：按升序排列数组项。</li>
+</ul>
+<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><ul>
+<li>concat()：使用这个方法后，会先创建当前数组的一个副本，然后将接收到的参数添加到副本的末尾，最后返回新构建的数组。</li>
+<li>slice(a,b)：基于当前数组创建一个新的数组，截取原数组位置a到位置b的元素组成新的数组。</li>
+<li>splice(a,b,其他元素)：这个方法可以删除，插入，替换。从数组位置a开始删除b项，再把其他元素插入位置a处。</li>
+</ul>
+<h3 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h3><ul>
+<li>indexOf()：从数组开头开始查找，返回要查找的项在数组中的位置。</li>
+<li>lastIndexOf()：从数组结束开始查找，返回要查找的项在数组中的位置。</li>
+</ul>
+<h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><ul>
+<li>every()：对数组中的每一项运行给定的函数，如果该函数对每一项返回true，则返回true。</li>
+<li>filter()：对数组中的每一项运行给定的函数，返回该函数会返回true的项组成的数组。</li>
+<li>forEach()：对数组中的每一项运行给定的函数,无返回值。</li>
+<li>map()：对数组中的每一项运行给定的函数，返回每次函数调用的结果组成的数组。</li>
+<li>some()：对数组中的每一项运行给定的函数，如果该函数对某一项返回true，则返回true。</li>
+</ul>
+<h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><ul>
+<li>reduce()；从数组的第一项开始，逐项遍历数组，然后构建一个最终返回的值。</li>
+<li>reduceRight()；从数组的最后一项开始，逐项遍历数组，然后构建一个最终返回的值。</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
