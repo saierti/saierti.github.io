@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2018-07-16</span>
-            <span class="time">01:24:15</span>
+            <span class="time">23:58:08</span>
           </span>
           
         </div>
@@ -156,8 +156,49 @@
 </ul>
 <h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><ul>
 <li>reduce()；从数组的第一项开始，逐项遍历数组，然后构建一个最终返回的值。</li>
-<li>reduceRight()；从数组的最后一项开始，逐项遍历数组，然后构建一个最终返回的值。</li>
+<li>reduceRight()；从数组的最后一项开始，逐项遍历数组，然后构建一个最终返回的值。<h2 id="Date-类型"><a href="#Date-类型" class="headerlink" title="Date 类型"></a>Date 类型</h2></li>
+<li>Date()：自动获得当前的日期与时间(本地计算机的)。</li>
+<li>Date.parse()：接收一个表示日期的字符串参数，根据字符串返回一个日期的毫秒数，根据此创建一个日期对象。</li>
+<li>Date.UTC()：功能同上，但使用不同的信息，参数分别为年份（数字），基于0的月份（一月为0，二月为1，以此类推），月中的某一天（1到31），小时数（0到23），分钟，秒及毫秒数。其中，toTimeString()只有年和月是必需的参数。省略的参数都假设为0.</li>
+<li>Date.now()：返回调用这个方法时的时间。</li>
 </ul>
+<h3 id="日期格式化方法"><a href="#日期格式化方法" class="headerlink" title="日期格式化方法"></a>日期格式化方法</h3><ul>
+<li>toDateString()：以特定于实现的格式显示星期几，月，日和年；</li>
+<li>toTimeString()：以特定于实现的格式显示时，分，秒和时区；</li>
+<li>toLocalDateString()：以特定于地区的格式显示星期几，月，日和年；</li>
+<li>toLocalTimeString()：以特定于实现的格式显示时，分，秒；</li>
+<li>toUTCString()：以特定于实现的格式显示完整的UTC日期；</li>
+</ul>
+<h3 id="常用的日期-时间组件方法"><a href="#常用的日期-时间组件方法" class="headerlink" title="常用的日期/时间组件方法"></a>常用的日期/时间组件方法</h3><ul>
+<li>获取：getTIme(),getMonth(),getDate(),getHours(),getMinutes(),getSeconds(),getMilliseconds();</li>
+<li>设置：setTIme(),setMonth(),setDate(),setHours(),setMinutes(),setSeconds(),setMilliseconds();</li>
+</ul>
+<h2 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h2><p>正则表达式的两种声明方式：</p>
+<blockquote>
+<p>var expression = / pattern /flags;<br>var pattern = new  RegExp(“pattern”,”flags”)</p>
+</blockquote>
+<h3 id="flags的三种值"><a href="#flags的三种值" class="headerlink" title="flags的三种值"></a>flags的三种值</h3><ul>
+<li>g：表示全局模式，即模式将被运用于所有的字符串，而非在发现第一匹配项时立即停止。</li>
+<li>i:  表示不区分大小写模式，即在确定匹配项时忽略模式与字符串的大小写。</li>
+<li>m: 表示多行模式，即在到达一行文本末尾时还会继续查找下一行是否存在与模式匹配的项。</li>
+</ul>
+<h2 id="RegExp实例属性"><a href="#RegExp实例属性" class="headerlink" title="RegExp实例属性"></a>RegExp实例属性</h2><ul>
+<li>global：布尔值，表示是否设置了g标志。</li>
+<li>ignoreCase：布尔值，表示是否设置了i标志。</li>
+<li>multiline：布尔值，表示是否设置了m标志。</li>
+<li>lastIndex：整数，表示开始搜索下一个匹配项的字符位置。</li>
+<li>source：正则表达式的字符串表示，按照字面量形式返回。</li>
+</ul>
+<h2 id="RegExp实例方法"><a href="#RegExp实例方法" class="headerlink" title="RegExp实例方法"></a>RegExp实例方法</h2><ul>
+<li>exec():接收一个参数，即要应用模式的字符串，然后返回包含第一个匹配项信息的数组。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var text = &quot;cat ,bat,sat,fat&quot;;</span><br><span class="line">var pattern1 = /.at/;</span><br><span class="line"></span><br><span class="line">var matches = pattern1.exec(text);</span><br><span class="line">alert(matches.index);   //0</span><br><span class="line">alert(matches[0]);      //cat</span><br><span class="line">alert(matches.lastIndex);  //0</span><br><span class="line"></span><br><span class="line">matches = pattern1.exec(text);</span><br><span class="line">alert(matches.index);   //0</span><br><span class="line">alert(matches[0]);      //cat</span><br><span class="line">alert(matches.lastIndex);  //0</span><br><span class="line"></span><br><span class="line">var pattern2 = /.at/g;</span><br><span class="line"></span><br><span class="line">var matches = pattern2.exec(text);</span><br><span class="line">alert(matches.index);   //0</span><br><span class="line">alert(matches[0]);      //cat</span><br><span class="line">alert(matches.lastIndex);  //3</span><br><span class="line"></span><br><span class="line">atches = pattern2.exec(text);</span><br><span class="line">alert(matches.index);   //5</span><br><span class="line">alert(matches[0]);      //bat</span><br><span class="line">alert(matches.lastIndex);  //8</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此例子可以充分表明加入全局标志g与不加的区别。</p>
+<ul>
+<li>text()：接收一个字符串参数，在该模式下与该参数匹配的项返回true。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var text = &quot;000-00-0000&quot;;</span><br><span class="line">var pattern = /\d&#123;3&#125;-\d&#123;2&#125;-\d&#123;4&#125;/;</span><br><span class="line">if(pattern.test(text))&#123;</span><br><span class="line">	alert(&quot;the pattern was matched.&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这种用法经常出现在验证用户输入的情况下，因为我们只想知道输入是不是有效。</p>
 
         </div>
       </div>
