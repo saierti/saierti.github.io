@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2018-07-16</span>
-            <span class="time">23:58:08</span>
+            <span class="time">00:38:31</span>
           </span>
           
         </div>
@@ -199,6 +199,21 @@
 </li>
 </ul>
 <p>这种用法经常出现在验证用户输入的情况下，因为我们只想知道输入是不是有效。</p>
+<h2 id="Function类型"><a href="#Function类型" class="headerlink" title="Function类型"></a>Function类型</h2><h3 id="arguement对象"><a href="#arguement对象" class="headerlink" title="arguement对象"></a>arguement对象</h3><blockquote>
+<p>函数名.length返回函数形参的个数。<br>arguments.length返回实参的个数<br>argument z还能在函数内部访问使用<br>argumrnts.callee指向当前函数，此方法多用于递归操作。</p>
+</blockquote>
+<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><blockquote>
+<p>this对象是指在运行时期基于执行环境所绑定的<br>this 总是指向调用者，也就是说，谁调用我，我就指向谁。</p>
+</blockquote>
+<h3 id="call-apply"><a href="#call-apply" class="headerlink" title="call  apply"></a>call  apply</h3><blockquote>
+<p>call() 与apply()可以绑定一些函数，用于传递参数，调用参数。<br>最大的用处是可以扩充作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">window.color = &quot;red&quot;;</span><br><span class="line">var o =&#123;color : &quot;blue&quot;&#125;;</span><br><span class="line">function sayColor()&#123;</span><br><span class="line">	alert(this.color);</span><br><span class="line">&#125;</span><br><span class="line">sayColor();</span><br><span class="line">sayColor.call(this); //red</span><br><span class="line">sayColor.call(window); //red</span><br><span class="line">sayColor.call(o); //blue</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>call () 与 apply()的区别仅仅是接受参数的方式不同，call()方法中传递的参数要逐项列举，apply()除了this之外的参数通过数组形式传递。</p>
+</blockquote>
+<h3 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind()方法"></a>bind()方法</h3><blockquote>
+<p>这个方法会创建一个函数的实例，其this值会被绑定到传给bind()函数的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.color = &quot;red&quot;;</span><br><span class="line">var o =&#123;color : &quot;blue&quot;&#125;;</span><br><span class="line">function sayColor()&#123;</span><br><span class="line">	alert(this.color);</span><br><span class="line">&#125;</span><br><span class="line">var objectSayColor = sayColor.bind(o);</span><br><span class="line">objectSayColor();  //blue8</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
         </div>
       </div>
