@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2018-07-17</span>
-            <span class="time">00:45:52</span>
+            <span class="time">00:49:41</span>
           </span>
           
         </div>
@@ -117,9 +117,9 @@
         <!-- Post Main Content -->
         <div class="post-content">
           <p>原型和闭包<br>and 打球的一天<br><a id="more"></a></p>
-<h1 id="原型和闭包"><a href="#原型和闭包" class="headerlink" title="原型和闭包"></a>原型和闭包</h1><p>首先得推荐一下王福朋的文章，十几篇文章比较系统的讲了一遍原型和闭包以及与之相关的一些知识<br><a href="http://www.cnblogs.com/wangfupeng1988/p/3977924.html" target="_blank" rel="noopener"></a></p>
+<h1 id="原型和闭包"><a href="#原型和闭包" class="headerlink" title="原型和闭包"></a>原型和闭包</h1><p>首先得推荐一下王福朋的文章，十几篇文章比较系统的讲了一遍原型和闭包以及与之相关的一些知识<br><img src="http://www.cnblogs.com/wangfupeng1988/p/3977924.html" alt=""></p>
 <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><h3 id="原型prototype"><a href="#原型prototype" class="headerlink" title="原型prototype"></a>原型prototype</h3><p>函数拥有默认属性prototype，每个函数都有一个属性叫做prototype。这个prototype的属性值是一个对象，默认的只有一个叫做constructor的属性，指向这个函数本身。当然，除了constructor属性之外，还可以自定义的增加许多属性。</p>
-<h3 id="隐式原型-proto"><a href="#隐式原型-proto" class="headerlink" title="隐式原型_ proto _"></a>隐式原型_ proto _</h3><p> <strong> proto </strong> 是一个隐藏的属性,而 <strong> proto </strong> 与prototype之间的一些关系，我们可以用一张图表示。<br> <img src="/../images/orgin1.png" alt=""></p>
+<h3 id="隐式原型-proto"><a href="#隐式原型-proto" class="headerlink" title="隐式原型_ proto _"></a>隐式原型_ proto _</h3><p> <strong> proto </strong> 是一个隐藏的属性,而 <strong> proto </strong> 与prototype之间的一些关系，我们可以用一张图表示。<br> <img src="/../images/origin1.png" alt=""></p>
 <h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><p>在执行语句之前，会先进行一些准备工作：</p>
 <ul>
 <li>变量、函数表达式——变量声明，默认赋值为undefined；</li>
@@ -134,16 +134,16 @@
 <li>至于x的取值，要到创建这个函数的那个作用域中取值——是“创建”，而不是“调用”，切记切记。</li>
 </ul>
 <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包有两种应用情况——函数作为返回值，函数作为参数传递。</p>
-<h3 id="函数作为返回值"><a href="#函数作为返回值" class="headerlink" title="函数作为返回值"></a>函数作为返回值</h3><p><img src="/../images/orgin2.png" alt=""></p>
-<h3 id="函数作为参数传递"><a href="#函数作为参数传递" class="headerlink" title="函数作为参数传递"></a>函数作为参数传递</h3><p><img src="/../images/orgin3.png" alt=""></p>
+<h3 id="函数作为返回值"><a href="#函数作为返回值" class="headerlink" title="函数作为返回值"></a>函数作为返回值</h3><p><img src="/../images/origin2.png" alt=""></p>
+<h3 id="函数作为参数传递"><a href="#函数作为参数传递" class="headerlink" title="函数作为参数传递"></a>函数作为参数传递</h3><p><img src="/../images/origin3.png" alt=""></p>
 <ul>
-<li>举一个闭包的经典例子<br><img src="/../images/orgin4.png" alt=""><blockquote>
-<p>第一步，代码执行前生成全局上下文环境，并在执行时对其中的变量进行赋值。此时全局上下文环境是活动状态。<br><img src="/../images/orgin5.png" alt=""><br>第二步，执行第17行代码时，调用fn()，产生fn()执行上下文环境，压栈，并设置为活动状态。<br><img src="/../images/orgin6.png" alt=""><br>三步，执行完第17行，fn()调用完成。按理说应该销毁掉fn()的执行上下文环境，但是这里不能这么做。注意，重点来了：因为执行fn()时，返回的是一个函数。函数的特别之处在于可以创建一个独立的作用域。而正巧合的是，返回的这个函数体中，还有一个自由变量max要引用fn作用域下的fn()上下文环境中的max。因此，这个max不能被销毁，销毁了之后bar函数中的max就找不到值了。因此，这里的fn()上下文环境不能被销毁，还依然存在与执行上下文栈中。</p>
+<li>举一个闭包的经典例子<br><img src="/../images/origin4.png" alt=""><blockquote>
+<p>第一步，代码执行前生成全局上下文环境，并在执行时对其中的变量进行赋值。此时全局上下文环境是活动状态。<br><img src="/../images/origin5.png" alt=""><br>第二步，执行第17行代码时，调用fn()，产生fn()执行上下文环境，压栈，并设置为活动状态。<br><img src="/../images/origin6.png" alt=""><br>三步，执行完第17行，fn()调用完成。按理说应该销毁掉fn()的执行上下文环境，但是这里不能这么做。注意，重点来了：因为执行fn()时，返回的是一个函数。函数的特别之处在于可以创建一个独立的作用域。而正巧合的是，返回的这个函数体中，还有一个自由变量max要引用fn作用域下的fn()上下文环境中的max。因此，这个max不能被销毁，销毁了之后bar函数中的max就找不到值了。因此，这里的fn()上下文环境不能被销毁，还依然存在与执行上下文栈中。</p>
 </blockquote>
 </li>
 </ul>
 <blockquote>
-<p>——即，执行到第18行时，全局上下文环境将变为活动状态，但是fn()上下文环境依然会在执行上下文栈中。另外，执行完第18行，全局上下文环境中的max被赋值为100。如下图：<br><img src="/../images/orgin7.png" alt=""><br>第四步，执行到第20行，执行f1(15)，即执行bar(15)，创建bar(15)上下文环境，并将其设置为活动状态。<br><img src="/../images/orgin8.png" alt=""><br>执行bar(15)时，max是自由变量，需要向创建bar函数的作用域中查找，找到了max的值为10。这个过程在作用域链一节已经讲过。</p>
+<p>——即，执行到第18行时，全局上下文环境将变为活动状态，但是fn()上下文环境依然会在执行上下文栈中。另外，执行完第18行，全局上下文环境中的max被赋值为100。如下图：<br><img src="/../images/origin7.png" alt=""><br>第四步，执行到第20行，执行f1(15)，即执行bar(15)，创建bar(15)上下文环境，并将其设置为活动状态。<br><img src="/../images/origin8.png" alt=""><br>执行bar(15)时，max是自由变量，需要向创建bar函数的作用域中查找，找到了max的值为10。这个过程在作用域链一节已经讲过。</p>
 </blockquote>
 <blockquote>
 <p>这里的重点就在于，创建bar函数是在执行fn()时创建的。fn()早就执行结束了，但是fn()执行上下文环境还存在与栈中，因此bar(15)时，max可以查找到。如果fn()上下文环境销毁了，那么max就找不到了。</p>
