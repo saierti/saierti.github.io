@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="jq（一）"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">jq（一）</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-07-24</span>
+            <span class="time">01:34:51</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/jq复习/">#jq复习</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>炎热的一天还有麦当当来安慰<br><a id="more"></a></p>
+<h1 id="jq复习"><a href="#jq复习" class="headerlink" title="jq复习"></a>jq复习</h1><h2 id="选择器："><a href="#选择器：" class="headerlink" title="选择器："></a>选择器：</h2><ul>
+<li>var div = $(‘#abc’);  根据id名选择</li>
+<li>var ps = $(‘p’);   根据标签名选择</li>
+<li>var a = $(‘.red’);  根据类名选择</li>
+<li>var email = $(‘[name=email]’);  选择属性</li>
+<li>var icons = $(‘[name^=icon]’); 找出所有name属性值以icon开头的DOM</li>
+<li><figure class="highlight plain"><figcaption><span>names </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">- 以上选择器可以组合选择，如var emailInput = $(&apos;input[name=email]&apos;);</span><br><span class="line">- 多项选择器：$(&apos;p.red,p.green&apos;); // 把 ```&lt;p class=&quot;red&quot;&gt;``` 和```&lt;p class=&quot;green&quot;&gt;```都选出来.</span><br><span class="line"></span><br><span class="line">### 层级选择器</span><br><span class="line">如$(&apos;ul.lang li&apos;);  选出clas是名为lang的ul中的子标签li</span><br><span class="line"></span><br><span class="line">#### 过滤器</span><br><span class="line">$(&apos;ul.lang li&apos;); 若选出了JavaScript、Python和Lua 3个节点，那么</span><br><span class="line"></span><br><span class="line">- $(&apos;ul.lang li:first-child&apos;); // 仅选出JavaScript</span><br><span class="line">- $(&apos;ul.lang li:last-child&apos;); // 仅选出Lua</span><br><span class="line">- $(&apos;ul.lang li:nth-child(2)&apos;); // 选出第N个元素，N从1开始</span><br><span class="line">- $(&apos;ul.lang li:nth-child(even)&apos;); // 选出序号为偶数的元素</span><br><span class="line">- $(&apos;ul.lang li:nth-child(odd)&apos;); // 选出序号为奇数的元素</span><br><span class="line"></span><br><span class="line">#### 表单相关</span><br><span class="line">- ```:input```：可以选择```&lt;input&gt;```，```&lt;textarea&gt;```，```&lt;select&gt;```和```&lt;button&gt;```；</span><br><span class="line"></span><br><span class="line">- ```:file```：可以选择```&lt;input type=&quot;file&quot;&gt;```，和```input[type=file]```一样；</span><br><span class="line"></span><br><span class="line">- ```:checkbox```：可以选择复选框，和```input[type=checkbox]```一样；</span><br><span class="line"></span><br><span class="line">- ```:radio```：可以选择单选框，和```input[type=radio]```一样；</span><br><span class="line">- ```:focus```：可以选择当前输入焦点的元素，例如把光标放到一个```&lt;input&gt;```上，用```$(&apos;input:focus&apos;)```就可以选出；</span><br><span class="line"></span><br><span class="line">- ```:checked```：选择当前勾上的单选框和复选框，用这个选择器可以立刻获得用户选择的项目，如```$(&apos;input[type=radio]:checked&apos;)```；</span><br><span class="line"></span><br><span class="line">- ```:enabled```：可以选择可以正常输入的```&lt;input&gt;```、```&lt;select&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>等，也就是没有灰掉的输入；</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 查找和过滤</span><br><span class="line">#### 查找</span><br><span class="line">- find():对子级元素查找；</span><br><span class="line">- parent()；对上一级元素进行查找；</span><br><span class="line">- next()：查找同级的下一个元素。</span><br><span class="line">- pre()：查找同级的前一个元素。</span><br><span class="line">- 这四种方法（）内填的参数为过滤的信息，若无法查找到匹配的元素，则会返回空的jquery对象。</span><br><span class="line"></span><br><span class="line">#### 过滤</span><br><span class="line">- filter()：filter可以过滤掉不想要的元素，注意填写的参数为不需要的元素名。</span><br><span class="line">- map()方法把一个jQuery对象包含的若干DOM节点转化为其他对象：</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>var langs = $(‘ul.lang li’);<br>var arr = langs.map(function () {<br>    return this.innerHTML;<br>}).get(); // 用get()拿到包含string的Array<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- first(), last() ,slice()   （不做过多介绍）</span><br><span class="line"></span><br><span class="line">## DOM</span><br><span class="line">- text()；获取某节点的文本内容；</span><br><span class="line">- html()：获取某节点的html文本内容。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- css()：对节点css进行操作，如```$(&apos;#test-css li.dy&gt;span&apos;).css(&apos;background-color&apos;, &apos;#ffd351&apos;).css(&apos;color&apos;, &apos;red&apos;);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>addcss()：为节点加入css<br><br></li>
+<li>attr()：可以改变节点的属性</li>
+<li>removeattr()：可以删除节点的属性。</li>
+<li>prop()：用于判断节点的属性值中是否有指定值，返回boolen值类型</li>
+<li>对于表单元素，jQuery对象统一提供val()方法获取和设置对应的value属性<br><br></li>
+<li>添加元素的方法：<ul>
+<li>添加子节点：append()加到多有子节点的最后面，preappend()加到所有子节点的前面</li>
+<li>添加同级的节点：after()和before()</li>
+</ul>
+</li>
+<li>删除节点的方法：remove();</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
