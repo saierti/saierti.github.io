@@ -115,7 +115,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/07/24/jq（一）/index.html">
 <meta property="og:site_name" content="saierti">
 <meta property="og:description" content="炎热的一天还有麦当当来安慰">
-<meta property="og:updated_time" content="2018-07-24T16:02:58.638Z">
+<meta property="og:updated_time" content="2018-07-24T16:07:45.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jq（一）">
 <meta name="twitter:description" content="炎热的一天还有麦当当来安慰">
@@ -339,7 +339,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-07-25 00:02:58" itemprop="dateModified" datetime="2018-07-25T00:02:58+08:00">2018-07-25</time>
+                <time title="Updated at: 2018-07-25 00:07:45" itemprop="dateModified" datetime="2018-07-25T00:07:45+08:00">2018-07-25</time>
               
             
           </span>
@@ -381,7 +381,20 @@
 <li>var icons = $(‘[name^=icon]’); 找出所有name属性值以icon开头的DOM</li>
 <li>找出所有name属性值以with结尾的DOM</li>
 <li>以上选择器可以组合选择，如var emailInput = $(‘input[name=email]’);</li>
-<li>多项选择器：$(‘p.red,p.green’); 把 <figure class="highlight plain"><figcaption><span>class</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 层级选择器</span><br><span class="line">如$(&apos;ul.lang li&apos;);  选出clas是名为lang的ul中的子标签li</span><br><span class="line"></span><br><span class="line">#### 过滤器</span><br><span class="line">$(&apos;ul.lang li&apos;); 若选出了JavaScript、Python和Lua 3个节点，那么</span><br><span class="line"></span><br><span class="line">- $(&apos;ul.lang li:first-child&apos;); // 仅选出JavaScript</span><br><span class="line">- $(&apos;ul.lang li:last-child&apos;); // 仅选出Lua</span><br><span class="line">- $(&apos;ul.lang li:nth-child(2)&apos;); // 选出第N个元素，N从1开始</span><br><span class="line">- $(&apos;ul.lang li:nth-child(even)&apos;); // 选出序号为偶数的元素</span><br><span class="line">- $(&apos;ul.lang li:nth-child(odd)&apos;); // 选出序号为奇数的元素</span><br><span class="line"></span><br><span class="line">#### 表单相关</span><br><span class="line">- ```:input```：可以选择```&lt;input&gt;```，```&lt;textarea&gt;```，```&lt;select&gt;```和```&lt;button&gt;```；</span><br><span class="line"></span><br><span class="line">- ```:file```：可以选择```&lt;input type=&quot;file&quot;&gt;```，和```input[type=file]```一样；</span><br><span class="line"></span><br><span class="line">- ```:checkbox```：可以选择复选框，和```input[type=checkbox]```一样；</span><br><span class="line"></span><br><span class="line">- ```:radio```：可以选择单选框，和```input[type=radio]```一样；</span><br><span class="line">- ```:focus```：可以选择当前输入焦点的元素，例如把光标放到一个```&lt;input&gt;```上，用```$(&apos;input:focus&apos;)```就可以选出；</span><br><span class="line"></span><br><span class="line">- ```:checked```：选择当前勾上的单选框和复选框，用这个选择器可以立刻获得用户选择的项目，如```$(&apos;input[type=radio]:checked&apos;)```；</span><br><span class="line"></span><br><span class="line">- ```:enabled```：可以选择可以正常输入的```&lt;input&gt;```、```&lt;select&gt;</span><br></pre></td></tr></table></figure></li>
+<li>多项选择器：$(‘p.red,p.green’); 把 class名为red和green的都选出来.</li>
+</ul>
+<h3 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h3><p>如$(‘ul.lang li’);  选出clas是名为lang的ul中的子标签li</p>
+<h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><p>$(‘ul.lang li’); 若选出了JavaScript、Python和Lua 3个节点，那么</p>
+<ul>
+<li>$(‘ul.lang li:first-child’); // 仅选出JavaScript</li>
+<li>$(‘ul.lang li:last-child’); // 仅选出Lua</li>
+<li>$(‘ul.lang li:nth-child(2)’); // 选出第N个元素，N从1开始</li>
+<li>$(‘ul.lang li:nth-child(even)’); // 选出序号为偶数的元素</li>
+<li>$(‘ul.lang li:nth-child(odd)’); // 选出序号为奇数的元素</li>
+</ul>
+<h4 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h4><ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```:file```：可以选择```&lt;input type=&quot;file&quot;&gt;```，和```input[type=file]```一样；</span><br><span class="line"></span><br><span class="line">- ```:checkbox```：可以选择复选框，和```input[type=checkbox]```一样；</span><br><span class="line"></span><br><span class="line">- ```:radio```：可以选择单选框，和```input[type=radio]```一样；</span><br><span class="line">- ```:focus```：可以选择当前输入焦点的元素，例如把光标放到一个```&lt;input&gt;```上，用```$(&apos;input:focus&apos;)```就可以选出；</span><br><span class="line"></span><br><span class="line">- ```:checked```：选择当前勾上的单选框和复选框，用这个选择器可以立刻获得用户选择的项目，如```$(&apos;input[type=radio]:checked&apos;)```；</span><br><span class="line"></span><br><span class="line">- ```:enabled```：可以选择可以正常输入的```&lt;input&gt;```、```&lt;select&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>等，也就是没有灰掉的输入；</p>
 <ul>
@@ -584,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jq复习"><span class="nav-number">1.</span> <span class="nav-text">jq复习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器："><span class="nav-number">1.1.</span> <span class="nav-text">选择器：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jq复习"><span class="nav-number">1.</span> <span class="nav-text">jq复习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器："><span class="nav-number">1.1.</span> <span class="nav-text">选择器：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#层级选择器"><span class="nav-number">1.1.1.</span> <span class="nav-text">层级选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#过滤器"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单相关"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">表单相关</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
