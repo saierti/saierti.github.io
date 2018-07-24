@@ -1,378 +1,122 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="jq（一）"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
   
 
+  <!-- Site Title -->
+  <title>saierti</title>
 
-<html class="theme-next muse use-motion" lang="">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
   
+  <link rel="stylesheet" href="/css/style.light.css">
 
-
-
-
-  <meta name="description" content="炎热的一天还有麦当当来安慰">
-<meta name="keywords" content="jq复习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jq（一）">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/jq（一）/index.html">
-<meta property="og:site_name" content="saierti">
-<meta property="og:description" content="炎热的一天还有麦当当来安慰">
-<meta property="og:updated_time" content="2018-07-24T16:07:45.864Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jq（一）">
-<meta name="twitter:description" content="炎热的一天还有麦当当来安慰">
-
-
-
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2018/07/24/jq（一）/"/>
-
-
-
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>jq（一） | saierti</title>
+  <!-- Google Analytics -->
   
-
-
-
-
-
-
-
-
-
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
-
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
-
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">saierti</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
+  <body>
+    <!-- Page Header -->
 
 
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-    
-
-  
-
-  
-</nav>
-
-
-
-  
-
-
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/jq（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="saierti">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">jq（一）
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-07-24 01:32:22" itemprop="dateCreated datePublished" datetime="2018-07-24T01:32:22+08:00">2018-07-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-07-25 00:07:45" itemprop="dateModified" datetime="2018-07-25T00:07:45+08:00">2018-07-25</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">jq（一）</p>
+          <p class="subtitle"></p>
         </div>
-      </header>
-    
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-07-24</span>
+            <span class="time">00:13:24</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
 
-      
-      
+<a class="tag" href="/tags/jq复习/">#jq复习</a>
 
-      
-        <p>炎热的一天还有麦当当来安慰<br><a id="more"></a></p>
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>炎热的一天还有麦当当来安慰<br><a id="more"></a></p>
 <h1 id="jq复习"><a href="#jq复习" class="headerlink" title="jq复习"></a>jq复习</h1><h2 id="选择器："><a href="#选择器：" class="headerlink" title="选择器："></a>选择器：</h2><ul>
 <li>var div = $(‘#abc’);  根据id名选择</li>
 <li>var ps = $(‘p’);   根据标签名选择</li>
@@ -387,22 +131,49 @@
 <h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><p>$(‘ul.lang li’); 若选出了JavaScript、Python和Lua 3个节点，那么</p>
 <ul>
 <li>$(‘ul.lang li:first-child’); // 仅选出JavaScript</li>
-<li>$(‘ul.lang li:last-child’); // 仅选出Lua</li>
+<li>$(‘ul.lang li:lasst-child’); // 仅选出Lua</li>
 <li>$(‘ul.lang li:nth-child(2)’); // 选出第N个元素，N从1开始</li>
 <li>$(‘ul.lang li:nth-child(even)’); // 选出序号为偶数的元素</li>
 <li>$(‘ul.lang li:nth-child(odd)’); // 选出序号为奇数的元素</li>
 </ul>
-<h4 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h4><ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```:file```：可以选择```&lt;input type=&quot;file&quot;&gt;```，和```input[type=file]```一样；</span><br><span class="line"></span><br><span class="line">- ```:checkbox```：可以选择复选框，和```input[type=checkbox]```一样；</span><br><span class="line"></span><br><span class="line">- ```:radio```：可以选择单选框，和```input[type=radio]```一样；</span><br><span class="line">- ```:focus```：可以选择当前输入焦点的元素，例如把光标放到一个```&lt;input&gt;```上，用```$(&apos;input:focus&apos;)```就可以选出；</span><br><span class="line"></span><br><span class="line">- ```:checked```：选择当前勾上的单选框和复选框，用这个选择器可以立刻获得用户选择的项目，如```$(&apos;input[type=radio]:checked&apos;)```；</span><br><span class="line"></span><br><span class="line">- ```:enabled```：可以选择可以正常输入的```&lt;input&gt;```、```&lt;select&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h4><p>-<code>:input</code>：可以选择<code>&lt;input&gt;</code>，<code>&lt;textarea&gt;</code>，<code>&lt;select&gt;</code>和<code>&lt;button&gt;</code>；</p>
+<ul>
+<li><p><code>:file</code>：可以选择<code>&lt;input type=&quot;file&quot;&gt;</code>，和<code>input[type=file]</code>一样；</p>
+</li>
+<li><p><code>:checkbox</code>：可以选择复选框，和<code>input[type=checkbox]</code>一样；</p>
+</li>
+<li><p><code>:radio</code>：可以选择单选框，和<code>input[type=radio]</code>一样；</p>
+</li>
+<li><p><code>:focus</code>：可以选择当前输入焦点的元素，例如把光标放到一个<code>&lt;input&gt;</code>上，用<code>$(&#39;input:focus&#39;)</code>就可以选出；</p>
+</li>
+<li><p><code>:checked</code>：选择当前勾上的单选框和复选框，用这个选择器可以立刻获得用户选择的项目，如<code>$(&#39;input[type=radio]:checked&#39;)</code>；</p>
+</li>
+<li><p><code>:enabled</code>：可以选择可以正常输入的<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code><br>等，也就是没有灰掉的输入；</p>
+</li>
+<li><p><code>:disabled</code>：和<code>:enabled</code>正好相反，选择那些不能输入的。</p>
 </li>
 </ul>
-<p>等，也就是没有灰掉的输入；</p>
-<ul>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 查找和过滤</span><br><span class="line">#### 查找</span><br><span class="line">- find():对子级元素查找；</span><br><span class="line">- parent()；对上一级元素进行查找；</span><br><span class="line">- next()：查找同级的下一个元素。</span><br><span class="line">- pre()：查找同级的前一个元素。</span><br><span class="line">- 这四种方法（）内填的参数为过滤的信息，若无法查找到匹配的元素，则会返回空的jquery对象。</span><br><span class="line"></span><br><span class="line">#### 过滤</span><br><span class="line">- filter()：filter可以过滤掉不想要的元素，注意填写的参数为不需要的元素名。</span><br><span class="line">- map()方法把一个jQuery对象包含的若干DOM节点转化为其他对象：</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="查找和过滤"><a href="#查找和过滤" class="headerlink" title="查找和过滤"></a>查找和过滤</h3><h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><ul>
+<li>find():对子级元素查找；</li>
+<li>parent()；对上一级元素进行查找；</li>
+<li>next()：查找同级的下一个元素。</li>
+<li>pre()：查找同级的前一个元素。</li>
+<li>这四种方法（）内填的参数为过滤的信息，若无法查找到匹配的元素，则会返回空的jquery对象。</li>
 </ul>
-<p>var langs = $(‘ul.lang li’);<br>var arr = langs.map(function () {<br>    return this.innerHTML;<br>}).get(); // 用get()拿到包含string的Array<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- first(), last() ,slice()   （不做过多介绍）</span><br><span class="line"></span><br><span class="line">## DOM</span><br><span class="line">- text()；获取某节点的文本内容；</span><br><span class="line">- html()：获取某节点的html文本内容。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- css()：对节点css进行操作，如```$(&apos;#test-css li.dy&gt;span&apos;).css(&apos;background-color&apos;, &apos;#ffd351&apos;).css(&apos;color&apos;, &apos;red&apos;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h4><ul>
+<li>filter()：filter可以过滤掉不想要的元素，注意填写的参数为不需要的元素名。</li>
+<li>map()方法把一个jQuery对象包含的若干DOM节点转化为其他对象：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var langs = $(&apos;ul.lang li&apos;); </span><br><span class="line">var arr = langs.map(function () &#123;</span><br><span class="line">    return this.innerHTML;</span><br><span class="line">&#125;).get(); // 用get()拿到包含string的Array</span><br></pre></td></tr></table></figure>
 <ul>
+<li>first(), last() ,slice()   （不做过多介绍）</li>
+</ul>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><ul>
+<li>text()；获取某节点的文本内容；</li>
+<li>html()：获取某节点的html文本内容。</li>
+</ul>
+<ul>
+<li>css()：对节点css进行操作，如<code>$(&#39;#test-css li.dy&gt;span&#39;).css(&#39;background-color&#39;, &#39;#ffd351&#39;).css(&#39;color&#39;, &#39;red&#39;);</code></li>
 <li>addcss()：为节点加入css<br><br></li>
 <li>attr()：可以改变节点的属性</li>
 <li>removeattr()：可以删除节点的属性。</li>
@@ -416,376 +187,42 @@
 <li>删除节点的方法：remove();</li>
 </ul>
 
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/jq复习/" rel="tag"># jq复习</a>
-          
         </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/07/23/表单验证/" rel="next" title="表单验证">
-                <i class="fa fa-chevron-left"></i> 表单验证
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+      </div>
     </div>
   </div>
+</article>
 
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Übersicht
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">12</span>
-                    <span class="site-state-item-name">Artikel</span>
-                  </a>
-                </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">Tags</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jq复习"><span class="nav-number">1.</span> <span class="nav-text">jq复习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器："><span class="nav-number">1.1.</span> <span class="nav-text">选择器：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#层级选择器"><span class="nav-number">1.1.1.</span> <span class="nav-text">层级选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#过滤器"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单相关"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">表单相关</span></a></li></ol></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
-
-  
-
-  
-</div>
-
-
-
-
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.6.0</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-	
-    
-
-    
   </div>
+</footer>
 
-  
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-</body>
+  </body>
 </html>
+
