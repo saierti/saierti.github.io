@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="jq（二）"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">jq（二）</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-07-25</span>
+            <span class="time">00:18:53</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/jq复习/">#jq复习</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+           <a id="more"></a>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h4 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h4><ul>
+<li>click: 鼠标单击时触发；</li>
+<li>dblclick：鼠标双击时触发；</li>
+<li>mouseenter：鼠标进入时触发；</li>
+<li>mouseleave：鼠标移出时触发；</li>
+<li>mousemove：鼠标在DOM内部移动时触发；</li>
+<li>hover：鼠标进入和退出时触发两个函数，相当于mouseenter加上mouseleave。<h4 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h4></li>
+<li>键盘事件仅作用在当前焦点的DOM上，通常是<code>&lt;input&gt;</code>和<code>&lt;textarea&gt;</code>。</li>
+<li>keydown：键盘按下时触发；</li>
+<li>keyup：键盘松开时触发；</li>
+<li>keypress：按一次键后触发。<h4 id="其他事件"><a href="#其他事件" class="headerlink" title="其他事件"></a>其他事件</h4></li>
+<li>focus：当DOM获得焦点时触发；</li>
+<li>blur：当DOM失去焦点时触发；</li>
+<li>change：当<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code>或<code>&lt;textarea&gt;</code>的内容改变时触发；</li>
+<li>submit：当<code>&lt;form&gt;</code>提交时触发；</li>
+<li>ready：当页面被载入并且DOM树完成初始化后触发。</li>
+</ul>
+<p>其中，ready仅作用于document对象。由于ready事件在DOM完成初始化后触发，且只触发一次，所以非常适合用来写其他的初始化代码。</p>
+<h3 id="事件参数"><a href="#事件参数" class="headerlink" title="事件参数"></a>事件参数</h3><p>有些事件，如mousemove和keypress，我们需要获取鼠标位置和按键的值，否则监听这些事件就没什么意义了。所有事件都会传入<code>Event</code>对象作为参数，可以从<code>Event</code>对象上获取到更多的信息：</p>
+<ul>
+<li>监听鼠标的坐标参数：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(function () &#123;</span><br><span class="line">    $(&apos;#testMouseMoveDiv&apos;).mousemove(function (e) &#123;</span><br><span class="line">        $(&apos;#testMouseMoveSpan&apos;).text(&apos;pageX = &apos; + e.pageX + &apos;, pageY = &apos; + e.pageY);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中，pageX和pageY两个方法可以返回鼠标指针的坐标位置，相对于文档的左边缘和上边缘。</p>
+<h3 id="取消绑定"><a href="#取消绑定" class="headerlink" title="取消绑定"></a>取消绑定</h3><p>一个已被绑定的事件可以解除绑定，通过off(‘event’, function)实现。</p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><ul>
+<li>show(),hide(),toggle()</li>
+<li>slideUp(),slideDown(),slide Toggle()</li>
+<li>fadeIn(),fadeOut(),fade Toggle()</li>
+<li>自定义动画：animate（｛css样式｝，时间参数，结束时执行的函数fun1）</li>
+<li>delay()：可以实现动画的暂停。</li>
+</ul>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><ul>
+<li><p>ajax函数：ajax(url,setting)函数需要接收一个URL和一个可选的settings对象，常用的选项如下：</p>
+<ul>
+<li>async：是否异步执行AJAX请求，默认为<code>true</code>，千万不要指定为<code>false</code>;</li>
+<li>method：发送的Method，缺省为<code>&#39;GET&#39;</code>，可指定为<code>&#39;POST&#39;</code>、<code>&#39;PUT&#39;</code>等；</li>
+</ul>
+<ul>
+<li><p>contentType：发送POST请求的格式，默认值为<code>&#39;application/x-www-form-urlencoded; charset=UTF-8&#39;</code>，也可以指定为<code>text/plain</code>、<code>application/json</code>；</p>
+</li>
+<li><p>data：发送的数据，可以是字符串、数组或object。如果是GET请求，data将被转换成query附加到URL上，如果是POST请求，根据contentType把data序列化成合适的格式；</p>
+</li>
+<li><p>headers：发送的额外的HTTP头，必须是一个object；</p>
+</li>
+<li><p>dataType：接收的数据格式，可以指定为<code>&#39;html&#39;</code>、<code>&#39;xml&#39;</code>、<code>&#39;json&#39;</code>、<code>&#39;text&#39;</code>等，缺省情况下根据响应的Content-Type猜测。</p>
+</li>
+</ul>
+</li>
+<li><p>回调函数</p>
+<ul>
+<li>done(function(data){})</li>
+<li>fail(function(xhr,status){})</li>
+<li>always(function(){})</li>
+<li>demo :<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  function ajaxLog(s) &#123;</span><br><span class="line">    var txt = $(&apos;#test-response-text&apos;);</span><br><span class="line">    txt.val(txt.val() + &apos;\n&apos; + s);</span><br><span class="line">&#125;</span><br><span class="line">$(&apos;#test-response-text&apos;).val(&apos;&apos;);</span><br><span class="line"></span><br><span class="line">  var jqxhr = $.ajax(&apos;/api/categories&apos;, &#123;</span><br><span class="line">    dataType: &apos;json&apos;</span><br><span class="line">&#125;).done(function (data) &#123;</span><br><span class="line">    ajaxLog(&apos;成功, 收到的数据: &apos; + JSON.stringify(data));</span><br><span class="line">&#125;).fail(function (xhr, status) &#123;</span><br><span class="line">    ajaxLog(&apos;失败: &apos; + xhr.status + &apos;, 原因: &apos; + status);</span><br><span class="line">&#125;).always(function () &#123;</span><br><span class="line">    ajaxLog(&apos;请求完成: 无论成功或失败都会调用&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>get(),post(),getJSON()三个方法都是传递两个参数，第一个参数为url，第二个参数为object（里面为要传递的数据）.</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
