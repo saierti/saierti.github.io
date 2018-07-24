@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="引用类型"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">引用类型</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-07-16</span>
+            <span class="time">23:42:56</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/引用类型/">#引用类型</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>引用类型<br><a id="more"></a></p>
+<h2 id="对象：访问对象属性的两种方法"><a href="#对象：访问对象属性的两种方法" class="headerlink" title="对象：访问对象属性的两种方法"></a>对象：访问对象属性的两种方法</h2><pre><code>1. alert（person.name）:点表示法，最常用的方法
+2. alert（person.[&quot;name&quot;]）:方括号表示法的优点是可以通过变量名来访问属性。
+</code></pre><h2 id="数组："><a href="#数组：" class="headerlink" title="数组："></a>数组：</h2><h3 id="检测方法："><a href="#检测方法：" class="headerlink" title="检测方法："></a>检测方法：</h3><ul>
+<li>instanceof<h3 id="转换方法："><a href="#转换方法：" class="headerlink" title="转换方法："></a>转换方法：</h3></li>
+<li>toString();</li>
+<li>toLocalString();</li>
+<li>valueOf();</li>
+<li>split(separator,howmany):用于把一个字符串分割成字符串数组.separator    :字符串或正则表达式，从该参数指定的地方分割 stringObject。howmany：该参数可指定返回的数组的最大长度。如果设置了该参数，返回的子串不会多于这个参数指定的数组。如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。</li>
+</ul>
+<h3 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h3><ul>
+<li>push():可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后的数组长度。</li>
+<li>pop()    :从数组末尾移除最后一项，返回移除的项。</li>
+</ul>
+<h3 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h3><ul>
+<li>shift()：移除数组中的第一个项并返回该项。</li>
+<li>unshift()：在数组前端添加任意个项并返回新数组的长度。</li>
+</ul>
+<h3 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h3><ul>
+<li>reverse(): 反转数组项的顺序。</li>
+<li>sort()：按升序排列数组项。</li>
+</ul>
+<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h3><ul>
+<li>concat()：使用这个方法后，会先创建当前数组的一个副本，然后将接收到的参数添加到副本的末尾，最后返回新构建的数组。</li>
+<li>slice(a,b)：基于当前数组创建一个新的数组，截取原数组位置a到位置b的元素组成新的数组。</li>
+<li>splice(a,b,其他元素)：这个方法可以删除，插入，替换。从数组位置a开始删除b项，再把其他元素插入位置a处。</li>
+</ul>
+<h3 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h3><ul>
+<li>indexOf()：从数组开头开始查找，返回要查找的项在数组中的位置。</li>
+<li>lastIndexOf()：从数组结束开始查找，返回要查找的项在数组中的位置。</li>
+</ul>
+<h3 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h3><ul>
+<li>every()：对数组中的每一项运行给定的函数，如果该函数对每一项返回true，则返回true。</li>
+<li>filter()：对数组中的每一项运行给定的函数，返回该函数会返回true的项组成的数组。</li>
+<li>forEach()：对数组中的每一项运行给定的函数,无返回值。（只能遍历一维数组）</li>
+<li>map()：对数组中的每一项运行给定的函数，返回每次函数调用的结果组成的数组。</li>
+<li>some()：对数组中的每一项运行给定的函数，如果该函数对某一项返回true，则返回true。</li>
+</ul>
+<h3 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h3><ul>
+<li>reduce()；从数组的第一项开始，逐项遍历数组，然后构建一个最终返回的值。</li>
+<li>reduceRight()；从数组的最后一项开始，逐项遍历数组，然后构建一个最终返回的值。<h2 id="Date-类型"><a href="#Date-类型" class="headerlink" title="Date 类型"></a>Date 类型</h2></li>
+<li>Date()：自动获得当前的日期与时间(本地计算机的)。</li>
+<li>Date.parse()：接收一个表示日期的字符串参数，根据字符串返回一个日期的毫秒数，根据此创建一个日期对象。</li>
+<li>Date.UTC()：功能同上，但使用不同的信息，参数分别为年份（数字），基于0的月份（一月为0，二月为1，以此类推），月中的某一天（1到31），小时数（0到23），分钟，秒及毫秒数。其中，toTimeString()只有年和月是必需的参数。省略的参数都假设为0.</li>
+<li>Date.now()：返回调用这个方法时的时间。</li>
+</ul>
+<h3 id="日期格式化方法"><a href="#日期格式化方法" class="headerlink" title="日期格式化方法"></a>日期格式化方法</h3><ul>
+<li>toDateString()：以特定于实现的格式显示星期几，月，日和年；</li>
+<li>toTimeString()：以特定于实现的格式显示时，分，秒和时区；</li>
+<li>toLocalDateString()：以特定于地区的格式显示星期几，月，日和年；</li>
+<li>toLocalTimeString()：以特定于实现的格式显示时，分，秒；</li>
+<li>toUTCString()：以特定于实现的格式显示完整的UTC日期；</li>
+</ul>
+<h3 id="常用的日期-时间组件方法"><a href="#常用的日期-时间组件方法" class="headerlink" title="常用的日期/时间组件方法"></a>常用的日期/时间组件方法</h3><ul>
+<li>获取：getTIme(),getMonth(),getDate(),getHours(),getMinutes(),getSeconds(),getMilliseconds();</li>
+<li>设置：setTIme(),setMonth(),setDate(),setHours(),setMinutes(),setSeconds(),setMilliseconds();</li>
+</ul>
+<h2 id="RegExp类型"><a href="#RegExp类型" class="headerlink" title="RegExp类型"></a>RegExp类型</h2><p>正则表达式的两种声明方式：</p>
+<blockquote>
+<p>var expression = / pattern /flags;<br>var pattern = new  RegExp(“pattern”,”flags”)</p>
+</blockquote>
+<h3 id="flags的三种值"><a href="#flags的三种值" class="headerlink" title="flags的三种值"></a>flags的三种值</h3><ul>
+<li>g：表示全局模式，即模式将被运用于所有的字符串，而非在发现第一匹配项时立即停止。</li>
+<li>i:  表示不区分大小写模式，即在确定匹配项时忽略模式与字符串的大小写。</li>
+<li>m: 表示多行模式，即在到达一行文本末尾时还会继续查找下一行是否存在与模式匹配的项。</li>
+</ul>
+<h2 id="RegExp实例属性"><a href="#RegExp实例属性" class="headerlink" title="RegExp实例属性"></a>RegExp实例属性</h2><ul>
+<li>global：布尔值，表示是否设置了g标志。</li>
+<li>ignoreCase：布尔值，表示是否设置了i标志。</li>
+<li>multiline：布尔值，表示是否设置了m标志。</li>
+<li>lastIndex：整数，表示开始搜索下一个匹配项的字符位置。</li>
+<li>source：正则表达式的字符串表示，按照字面量形式返回。</li>
+</ul>
+<h2 id="RegExp实例方法"><a href="#RegExp实例方法" class="headerlink" title="RegExp实例方法"></a>RegExp实例方法</h2><ul>
+<li>exec():接收一个参数，即要应用模式的字符串，然后返回包含第一个匹配项信息的数组。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var text = &quot;cat ,bat,sat,fat&quot;;</span><br><span class="line">var pattern1 = /.at/;</span><br><span class="line"></span><br><span class="line">var matches = pattern1.exec(text);</span><br><span class="line">alert(matches.index);   //0</span><br><span class="line">alert(matches[0]);      //cat</span><br><span class="line">alert(matches.lastIndex);  //0</span><br><span class="line"></span><br><span class="line">matches = pattern1.exec(text);</span><br><span class="line">alert(matches.index);   //0</span><br><span class="line">alert(matches[0]);      //cat</span><br><span class="line">alert(matches.lastIndex);  //0</span><br><span class="line"></span><br><span class="line">var pattern2 = /.at/g;</span><br><span class="line"></span><br><span class="line">var matches = pattern2.exec(text);</span><br><span class="line">alert(matches.index);   //0</span><br><span class="line">alert(matches[0]);      //cat</span><br><span class="line">alert(matches.lastIndex);  //3</span><br><span class="line"></span><br><span class="line">atches = pattern2.exec(text);</span><br><span class="line">alert(matches.index);   //5</span><br><span class="line">alert(matches[0]);      //bat</span><br><span class="line">alert(matches.lastIndex);  //8</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此例子可以充分表明加入全局标志g与不加的区别。</p>
+<ul>
+<li>text()：接收一个字符串参数，在该模式下与该参数匹配的项返回true。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var text = &quot;000-00-0000&quot;;</span><br><span class="line">var pattern = /\d&#123;3&#125;-\d&#123;2&#125;-\d&#123;4&#125;/;</span><br><span class="line">if(pattern.test(text))&#123;</span><br><span class="line">	alert(&quot;the pattern was matched.&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这种用法经常出现在验证用户输入的情况下，因为我们只想知道输入是不是有效。</p>
+<h2 id="Function类型"><a href="#Function类型" class="headerlink" title="Function类型"></a>Function类型</h2><h3 id="arguement对象"><a href="#arguement对象" class="headerlink" title="arguement对象"></a>arguement对象</h3><blockquote>
+<p>函数名.length返回函数形参的个数。<br>arguments.length返回实参的个数<br>argument z还能在函数内部访问使用<br>argumrnts.callee指向当前函数，此方法多用于递归操作。</p>
+</blockquote>
+<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><blockquote>
+<p>this对象是指在运行时期基于执行环境所绑定的<br>this 总是指向调用者，也就是说，谁调用我，我就指向谁。</p>
+</blockquote>
+<h3 id="call-apply"><a href="#call-apply" class="headerlink" title="call  apply"></a>call  apply</h3><blockquote>
+<p>call() 与apply()可以绑定一些函数，用于传递参数，调用参数。<br>最大的用处是可以扩充作用域<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">window.color = &quot;red&quot;;</span><br><span class="line">var o =&#123;color : &quot;blue&quot;&#125;;</span><br><span class="line">function sayColor()&#123;</span><br><span class="line">	alert(this.color);</span><br><span class="line">&#125;</span><br><span class="line">sayColor();</span><br><span class="line">sayColor.call(this); //red</span><br><span class="line">sayColor.call(window); //red</span><br><span class="line">sayColor.call(o); //blue</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>call () 与 apply()的区别仅仅是接受参数的方式不同，call()方法中传递的参数要逐项列举，apply()除了this之外的参数通过数组形式传递。</p>
+</blockquote>
+<h3 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind()方法"></a>bind()方法</h3><blockquote>
+<p>这个方法会创建一个函数的实例，其this值会被绑定到传给bind()函数的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.color = &quot;red&quot;;</span><br><span class="line">var o =&#123;color : &quot;blue&quot;&#125;;</span><br><span class="line">function sayColor()&#123;</span><br><span class="line">	alert(this.color);</span><br><span class="line">&#125;</span><br><span class="line">var objectSayColor = sayColor.bind(o);</span><br><span class="line">objectSayColor();  //blue8</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
