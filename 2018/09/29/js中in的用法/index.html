@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <!-- Open Graph Data -->
-  <meta property="og:title" content="2018/7/12"/>
+  <meta property="og:title" content="js中in的用法"/>
   <meta property="og:description" content="" />
   <meta property="og:site_name" content="saierti"/>
   <meta property="og:type" content="article" />
@@ -43,7 +43,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-title with-background-image">
-          <p class="title">2018/7/12</p>
+          <p class="title">js中in的用法</p>
           <p class="subtitle"></p>
         </div>
         <div class="site-menu with-background-image">
@@ -99,7 +99,7 @@
           
           <!-- Date -->
           <span class="date-time info">On
-            <span class="date">2018-07-12</span>
+            <span class="date">2018-09-29</span>
             <span class="time">14:23:27</span>
           </span>
           
@@ -109,35 +109,22 @@
           <div class="post-tags text-muted">
             Tags: 
 
-<a class="tag" href="/tags/git-小记/">#git 小记</a>
+<a class="tag" href="/tags/关键字in/">#关键字in</a>
 
 
           </div>
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <h1 id="git小计"><a href="#git小计" class="headerlink" title="git小计"></a>git小计</h1><h3 id="注册github账号并添加文章："><a href="#注册github账号并添加文章：" class="headerlink" title="注册github账号并添加文章："></a>注册github账号并添加文章：</h3><blockquote>
-<p>下载git bash<br>下载hexo<br>下载node.js<br>生成ssh并添加到github<br>部署项目:<br>    　　　　hexo new: 生成新的文章<br>    　　　　hexo clean:清除缓存文件<br>    　　　　hexo g:生成静态文件<br>   　　　 　hexo s:更新本地静态文件<br>上传到github:<br>           hexo d:文章上传到网上 </p>
-</blockquote>
-<h3 id="git工作："><a href="#git工作：" class="headerlink" title="git工作："></a>git工作：</h3><p>　　　四个分区：<br>　　　Workspace：工作区<br>　　　Index / Stage：暂存区<br>　　　Repository：仓库区（或本地仓库）<br>　　　Remote：远程仓库 </p>
-<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><blockquote>
-<ol>
-<li>建设一个仓库</li>
-<li>邀请开发者加入<br>3.将文件下拉到自己的分支工作 <pre><code>git init:初始化本地版本库
-git clone (ssh):克隆远程版本库
-git pull origin master:将远程库的项目下载到本地快速合并
-git checkout -b (name)：创建新的分支
-</code></pre></li>
-<li>在自己的分支进行操作</li>
-<li>合并上传<pre><code>git add .: 跟踪所有文件
-git commit -m &quot;注释&quot;:提交最后一次修改的文件到栈区
-git checkout master:切换分支；
-git merge （name）:将分支合并到主干
-git push origin master:上传到远程库
-</code></pre></li>
-</ol>
-</blockquote>
-<p><img src="/../images/git2.png" alt=""></p>
+          <!-- 关键字in的用法 -->
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><h4 id="数组的判断"><a href="#数组的判断" class="headerlink" title="数组的判断"></a>数组的判断</h4><p>语法：x in arr——x表示的是数组的下标，意思是判断arr是否有下标为x的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,4,6,&apos;a&apos;];</span><br><span class="line">console.log(&apos;a&apos; in arr);// 结果为false</span><br><span class="line">console.log(4 in arr);// 结果为false</span><br><span class="line">console.log(3 in arr);// 结果为true</span><br></pre></td></tr></table></figure></p>
+<h4 id="对象的判断"><a href="#对象的判断" class="headerlink" title="对象的判断"></a>对象的判断</h4><p>语法：x in obj——x表示的是对象的属性，意思是判断对象中是否有x这个属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj =&#123;a:3,b:&apos;b&apos;,c:4&#125;</span><br><span class="line">console.log(&apos;a&apos; in obj);// 结果为true</span><br><span class="line">console.log(&apos;b&apos; in obj);// 结果为true</span><br><span class="line">console.log(&apos;4&apos; in obj);// 结果为false</span><br></pre></td></tr></table></figure></p>
+<p>obj中确实具有a，b这两个属性，所以第一个和第二个都是true。<br>但是没有4这个属性，因此是false。</p>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p>一般使用for in 来遍历数组或者对象<br>对于数组，迭代出来的就是数组元素。<br>对于对象，迭代出来的就是对象的属性。</p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">for(var x in arr)&#123;</span><br><span class="line">	console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果为123</p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;xiaoming&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;;</span><br><span class="line">for(var x in obj)&#123;</span><br><span class="line">	console.log(x + &quot;  &quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果为xiaoming  18</p>
 
         </div>
       </div>
