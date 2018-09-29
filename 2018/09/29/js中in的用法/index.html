@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2018-09-29</span>
-            <span class="time">14:23:27</span>
+            <span class="time">00:35:07</span>
           </span>
           
         </div>
@@ -116,7 +116,7 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <!-- 关键字in的用法 -->
+          <p>关键字in的用法<br><a id="more"></a></p>
 <h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><h4 id="数组的判断"><a href="#数组的判断" class="headerlink" title="数组的判断"></a>数组的判断</h4><p>语法：x in arr——x表示的是数组的下标，意思是判断arr是否有下标为x的元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,4,6,&apos;a&apos;];</span><br><span class="line">console.log(&apos;a&apos; in arr);// 结果为false</span><br><span class="line">console.log(4 in arr);// 结果为false</span><br><span class="line">console.log(3 in arr);// 结果为true</span><br></pre></td></tr></table></figure></p>
 <h4 id="对象的判断"><a href="#对象的判断" class="headerlink" title="对象的判断"></a>对象的判断</h4><p>语法：x in obj——x表示的是对象的属性，意思是判断对象中是否有x这个属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj =&#123;a:3,b:&apos;b&apos;,c:4&#125;</span><br><span class="line">console.log(&apos;a&apos; in obj);// 结果为true</span><br><span class="line">console.log(&apos;b&apos; in obj);// 结果为true</span><br><span class="line">console.log(&apos;4&apos; in obj);// 结果为false</span><br></pre></td></tr></table></figure></p>
 <p>obj中确实具有a，b这两个属性，所以第一个和第二个都是true。<br>但是没有4这个属性，因此是false。</p>
@@ -124,7 +124,7 @@
 <h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,3];</span><br><span class="line">for(var x in arr)&#123;</span><br><span class="line">	console.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果为123</p>
 <h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">	name:&quot;xiaoming&quot;,</span><br><span class="line">	age:18</span><br><span class="line">&#125;;</span><br><span class="line">for(var x in obj)&#123;</span><br><span class="line">	console.log(x + &quot;  &quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结果为xiaoming  18</p>
+<p>结果为name  age</p>
 
         </div>
       </div>
