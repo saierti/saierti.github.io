@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="vue起步"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">vue起步</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-10-14</span>
+            <span class="time">17:47:25</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/vue/">#vue</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>vue<br><a id="more"></a></p>
+<p>##模板语法<br>Vue的使用需要先New一个Vue对象，对象内包括el，data，methods三个属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">     el: &apos;body&apos;,</span><br><span class="line">     data: &#123;</span><br><span class="line">      msg:&apos;hello world&apos;,</span><br><span class="line">         alexa: &quot;10000&quot;</span><br><span class="line">     &#125;,</span><br><span class="line">     methods: &#123;</span><br><span class="line">         details: function() &#123;</span><br><span class="line">             return  &apos;Vue起步&apos;;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></p>
+<p>1.el：声明作用域，如body——只能作用于body的标签之内。<br>2.data：用于储存需要用到的数据。<br>3.methods：可在里面定义函数，可在html中调用此处的函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div @click=&apos;details&apos;&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这个时候，div框内就会显示hello world，也就是msg变量的值（引用时需要用两个花括号符号包裹），而点击div时就会触发点击事件，调用details函数。</p>
+<p>##常用指令</p>
+<p>###v-model双向绑定数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; v-model=&quot;msg&quot;/&gt;   &#123;&#123;msg&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此处的input用v-model绑定了msg这个变量，也就是说当input框内输入信息时，后面的msg处也会显示一样的信息。</p>
+<p>###v-for循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;box&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">         &lt;li v-for=&quot;item in arr&quot;&gt;</span><br><span class="line">             &lt;span&gt;&#123;&#123;item.name&#125;&#125;&lt;/span&gt;</span><br><span class="line">             &lt;span&gt;&#123;&#123;item.age&#125;&#125;&lt;/span&gt;</span><br><span class="line">         &lt;/li&gt;</span><br><span class="line">     &lt;/ul&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">     new Vue(&#123;</span><br><span class="line">         el:&apos;#box&apos;,</span><br><span class="line">        data()&#123;</span><br><span class="line">                arr:[</span><br><span class="line">                    &#123;&quot;name&quot;:&quot;xiaohong1&quot;,&quot;age&quot;:12&#125;,</span><br><span class="line">                   &#123;&quot;name&quot;:&quot;xiaohong2&quot;,&quot;age&quot;:12&#125;,</span><br><span class="line">                     &#123;&quot;name&quot;:&quot;xiaohong3&quot;,&quot;age&quot;:12&#125;,</span><br><span class="line">                    &#123;&quot;name&quot;:&quot;xiaohong4&quot;,&quot;age&quot;:12&#125;</span><br><span class="line">                ]</span><br><span class="line">              &#125;</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>item为循环中的每一项，虽然html中只写了一个li标签，但是由于循环的数组中有四个元素，所以最终会有4个li标签。</p>
+<h3 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h3><p>v-if=”表达式”，根据表达式的结果来判断，是true则渲染元素，false则将元素注释掉</p>
+<h3 id="v-show显示与隐藏"><a href="#v-show显示与隐藏" class="headerlink" title="v-show显示与隐藏"></a>v-show显示与隐藏</h3><p>v-show与v-if类似，true就渲染，但是false并不是注释掉，而是通过display:none;来将元素隐藏，如果需要来回切换，使用v-show更好。</p>
+<h3 id="v-once-不允许修改v-if数据"><a href="#v-once-不允许修改v-if数据" class="headerlink" title="v-once:不允许修改v-if数据"></a>v-once:不允许修改v-if数据</h3><p>例如HTML中有如下三个标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">       &lt;p v-once&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">       &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">       &lt;input type=&quot;text&quot; v-model=&quot;msg&quot;&gt;</span><br><span class="line">   &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在input框内输入内容后，会传到msg变量中，第二个p标签内显示的信息会随着msg发生变化，而第一个带有v-once的p标签则只会显示msg的初始值，不会随之变化。</p>
+<h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><p>向标签内注入数据，并且覆盖标签内的其他内容.</p>
+<h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><p>向标签内覆盖注入HTML内容作为其子元素</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
