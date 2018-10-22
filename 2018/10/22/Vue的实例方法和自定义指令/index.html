@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="Vue的实例方法和自定义指令"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">Vue的实例方法和自定义指令</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2018-10-22</span>
+            <span class="time">18:39:27</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/Vue/">#Vue</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>实例方法和自定义指令<br><a id="more"></a></p>
+<h2 id="Vue实例方法"><a href="#Vue实例方法" class="headerlink" title="Vue实例方法"></a>Vue实例方法</h2><p>假设此处我们已经创建了一个Vue实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var v = new Vue(&#123;</span><br><span class="line">	......//具体属性</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="mount"><a href="#mount" class="headerlink" title="$mount"></a>$mount</h4><p><code>v.$mount(&#39;&#39;)</code>可以对v的作用域进行定义，当时需要注意的是，它的级别并没有el那么高，当v中定义了具体的el时，我们是无法通过$mountd的方法来更改作用域的。</p>
+<h4 id="data"><a href="#data" class="headerlink" title="$data"></a>$data</h4><p><code>v.$data</code>就是操作data属性的。</p>
+<h4 id="el"><a href="#el" class="headerlink" title="$el"></a>$el</h4><p>若在v中定义了el作用域为#div1，那么<code>v.$el</code>可以直接获取这个id名为div1的原生dom对象，一般可以用这个方法对dom节点进行操作。</p>
+<h4 id="options"><a href="#options" class="headerlink" title="$options"></a>$options</h4><p><code>v.$options</code>可以获得一个对象，里面包含着v的所有属性，包括正常属性和自定义属性。</p>
+<h4 id="log"><a href="#log" class="headerlink" title="$log"></a>$log</h4><p><code>v.$log</code>将返回一个对象，对象里面包含的是v中data属性中的内容。</p>
+<h4 id="destory"><a href="#destory" class="headerlink" title="$destory"></a>$destory</h4><p><code>v.$destory</code>可以销毁v这个对象。</p>
+<h2 id="v-cloak"><a href="#v-cloak" class="headerlink" title="v-cloak"></a>v-cloak</h2><p>有时我们用模板语法输出变量的值，在页面初始化的时候我们往往会看到页面出现的并不是变量的值，而是变量名，过一下才闪动变成变量的值，这是初始化缓慢所导致的问题。为了解决这个问题，就需要用到v-cloak（一般配合display: none使用）。<br>如下面这个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div v-cloak&gt;</span><br><span class="line">    &#123;&#123;message&#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &quot;VCloak&quot;,</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        message: &apos;v-cloak示例&apos;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  [v-cloak] &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<p>我们对div标签添加了属性，css中使用属性选择器对含有v-cloak的所有标签设置了display：none。而运行的机制是，当页面未加载出message变量的值时，v-cloak属性将起作用，整个div框都不显示出来，当message的值加载完毕时，v-cloak将不再起作用，它的css自然也就失效，div框又能显现出来，以此解决初始化页面闪动的问题。</p>
+<h2 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>Vue还设置了自定义指令来更加方便地操作dom节点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&apos;yang&apos;,function()&#123;</span><br><span class="line">	//函数体</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>第一个参数为定义的名字，第二个为执行的函数。在调用时只需要在标签中加入相应名字的属性，如下图：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-yang&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这样即可让div块执行函数，需要注意的是，若以驼峰命名法命名，如<code>yangNing</code>，那么在标签处应写为<code>v-yang-ning</code>。</p>
+<h3 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h3><p><code>bind</code>：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。</p>
+<p><code>inserted</code>：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
+<p><code>update</code>：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。但是你可以通过比较更新前后的值来忽略不必要的模板更新 。</p>
+<p><code>componentUpdated</code>：指令所在组件的 VNode 及其子 VNode 全部更新后调用。</p>
+<p><code>unbind</code>：只调用一次，指令与元素解绑时调用。</p>
+<h3 id="钩子函数参数"><a href="#钩子函数参数" class="headerlink" title="钩子函数参数"></a>钩子函数参数</h3><ul>
+<li>el：指令所绑定的元素，可以用来直接操作 DOM 。</li>
+<li>binding：一个对象，包含以下属性：<ul>
+<li>name：指令名，不包括 v- 前缀。</li>
+<li>value：指令的绑定值，例如：v-my-directive=”1 + 1” 中，绑定值为 2。</li>
+<li>oldValue：指令绑定的前一个值，仅在 update 和 componentUpdated 钩子中可用。无论值是否改变都可用。</li>
+<li>expression：字符串形式的指令表达式。例如 v-my-directive=”1 + 1” 中，表达式为 “1 + 1”。</li>
+<li>arg：传给指令的参数，可选。例如 v-my-directive:foo 中，参数为 “foo”。</li>
+<li>modifiers：一个包含修饰符的对象。例如：v-my-directive.foo.bar 中，修饰符对象为 { foo: true, bar: true }。</li>
+</ul>
+</li>
+<li>vnode：Vue 编译生成的虚拟节点。</li>
+<li>oldVnode：上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
