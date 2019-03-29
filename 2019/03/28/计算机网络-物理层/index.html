@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="计算机网络--物理层"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">计算机网络--物理层</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-03-28</span>
+            <span class="time">16:46:43</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/计网笔记/">#计网笔记</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h1 id="计算机网络——物理层"><a href="#计算机网络——物理层" class="headerlink" title="计算机网络——物理层"></a>计算机网络——物理层</h1><p>感觉自己很长一段时间没有更新过博客了。感觉是有些怠惰了，反思后感觉这样下去不行。还是得把自己学的东西好好记录下来。最近在学习计算机网络，这篇讲计网的物理层，计划上是打算持续更新关于计网的博客的，希望自己爱鸽的本性不会让我把自己的博客都给咕掉。</p>
+<hr>
+<h2 id="基本特性"><a href="#基本特性" class="headerlink" title="基本特性"></a>基本特性</h2><h4 id="机械特性"><a href="#机械特性" class="headerlink" title="机械特性"></a>机械特性</h4><p>硬件外形标准化。</p>
+<p>机械特性规定了物理连接时插头和插座的几何尺寸、插针或插孔芯数及排列方式、锁定装置形式等。</p>
+<p>####电器特性<br>电压传输标准化。</p>
+<p>电气特性规定了在物理连接上导线的电气连接及有关的电回路的特性，一般包括接收器和发送器电路特性的说明、表示信号状态的电压/电流电平的识别、最大传输速率的说明，以及与互连电缆相关的规则等。</p>
+<h4 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h4><p>表明电压的电平意义。</p>
+<p>功能特性规定了接口信号的来源、作用以及其他信号之间的关系。</p>
+<h4 id="过程特性"><a href="#过程特性" class="headerlink" title="过程特性"></a>过程特性</h4><p>不同功能各种可能事件的出现顺序。</p>
+<p>规程特性规定了使用交换电路进行数据交换的控制步骤，这些控制步骤的应用使得比特流传输得以完成。</p>
+<hr>
+<h2 id="数据通信"><a href="#数据通信" class="headerlink" title="数据通信"></a>数据通信</h2><p>一个数据通信系统可划分为三大部分，即源系统(或发送端、发送方)、传输系统(或传输网络)和目的系统(或接收端、接收方)。<br><img src="./jiwang.png" alt="Alt text"></p>
+<h3 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h3><ol>
+<li>数据：运送消息的实体。</li>
+<li>信号：数据的电气或电磁的表现。</li>
+<li>码元：在使用时间域的波形表示数字信号时，则代表不同离散数值的基本波形。</li>
+<li>单工通信（单向通信）：只能有一个方向的通信而没有反方向的交互。例如无线电广播、电视广播等等，只能由对方发出广播信号，用我们手上的设备接收，但是我们并不能返回信号给对方。</li>
+<li>半双工通信（双向交替通信）：通信的双方都可以发送消息，但是不能双方同时发送或者同时接收。例如传统的对讲机，必须要一方讲话完毕后，另一方才能讲话，双方不能同时讲话（那不就变成电话了）</li>
+<li>全双工通信（双向同时通信）：通信的双方可以同时发送和接收信息。单工通信只需要一个信道，而半双工和全双工通信都需要两条信道。而其中全双工通信的传输效率最高。</li>
+<li>基带信号与带宽信号：基带信号是信源发出的没有经过调制的原始电信号，特点是频率较低。带通信号是把基带信号经过载波调制后，把信号的频率范围搬移到较高的频段以便在信道中传输。<blockquote>
+<p>因为基带信号属于低频率的信号，在长距离的传输中损耗太大了，只适合短距离的数据传输。所以通常进行长距离的数据传输中，需要将基带信号调制成高频的带宽信号，降低传输损耗。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h4><p><img src="./jiwang2.png" alt="Alt text"></p>
+<ul>
+<li><p>不归零制：正电平代表 1，负电平代表 0。</p>
+</li>
+<li><p>归零制：正脉冲代表 1，负脉冲代表 0。</p>
+</li>
+<li><p>曼彻斯特编码：位周期中心的向上跳变代表 0，位周期中心的向下跳变代表 1。但也可反过来定义。</p>
+</li>
+<li><p>差分曼彻斯特编码：在每一位的中心处始终都有跳变。位开始边界有跳变代表 0，而位开始边界没有跳变代表 1。</p>
+</li>
+</ul>
+<h4 id="基带的带通调制方法"><a href="#基带的带通调制方法" class="headerlink" title="基带的带通调制方法"></a>基带的带通调制方法</h4><p><img src="./jiwang3.png" alt="Alt text"></p>
+<ul>
+<li><p>调幅(AM)：载波的振幅随基带数字信号而变化。</p>
+</li>
+<li><p>调频(FM)：载波的频率随基带数字信号而变化。</p>
+</li>
+<li><p>调相(PM) ：载波的初始相位随基带数字信号而变化</p>
+</li>
+</ul>
+<h3 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h3><p>信道在传输信号的时候，都是不理想的，会产生各种失真以及带来多种干扰。</p>
+<h4 id="奈氏准则"><a href="#奈氏准则" class="headerlink" title="奈氏准则"></a>奈氏准则</h4><blockquote>
+<p>在任何信道中，码元的传输速率是有上限的，传输速率超过这个上限时，就会出现严重的码间串扰问题，使接收端对码元信息的判断产生问题。</p>
+</blockquote>
+<ul>
+<li><p>奈氏准则（无噪声情况）：码元速率的极限值B与信道带宽W关系。理想状态下的最高码元传输速率为2W Baud。理想带通信道的最高码元传输速率为1W Baud。<br><strong>Baud是波特，是码元传输速率的单位，1波特为每秒传送1个码元，单位是码元/秒。W为信道带宽（Hz）</strong></p>
+</li>
+<li><p>奈圭斯公式：C = 2 <em> W </em> log2(N)。<br><strong>C是信道的极限信息传输速率，单位bit/s。N是携带数据的码元，可能取的离散值个数。 </strong></p>
+</li>
+</ul>
+<h4 id="信噪比"><a href="#信噪比" class="headerlink" title="信噪比"></a>信噪比</h4><blockquote>
+<p>噪声存在于所有电子设备和通信设备的信道中。噪声是随机产生的，它的瞬间之有时会很大。噪声会使接收端对码元的判断产生问题。但噪声的影响是相对的，如果信号相对较强，那么噪声的影响就相对较小。因此，信噪比是很重要的。</p>
+</blockquote>
+<ul>
+<li><p>信噪比：就是信号的平均功率和噪声的平均功率之比，常记为S/N，并用分贝(dB)作为度量单位。<br>  公式：信噪比(dB) = 10 * log10(S/N)(dB)</p>
+</li>
+<li><p>香农公式：代表了信息传输速率的上限。<br>公式：C = W * log2(1+S/N)<br><strong> C是信道的极限信息传输速率，单位bit/s。 W为信道带宽（Hz）。 S为信道内所传信号的平均功率。 N为信道内部的高斯噪声功率。</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>香农公式表示，信道中的信噪比越大，信息的极限传输速率就越高。</p>
+</blockquote>
+<hr>
+<h2 id="物理层的传输媒体"><a href="#物理层的传输媒体" class="headerlink" title="物理层的传输媒体"></a>物理层的传输媒体</h2><h4 id="导向传输媒体"><a href="#导向传输媒体" class="headerlink" title="导向传输媒体"></a>导向传输媒体</h4><ul>
+<li>双绞线:屏蔽双绞线（STP）<br>无屏蔽双绞线（UTP）</li>
+<li>同轴电缆</li>
+<li>光缆<h4 id="非导向传输媒体"><a href="#非导向传输媒体" class="headerlink" title="非导向传输媒体"></a>非导向传输媒体</h4></li>
+<li>红外通信</li>
+<li>激光通信</li>
+<li>微波接力通信</li>
+<li>卫星通信</li>
+</ul>
+<hr>
+<h2 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h2><p><img src="./jiwang4.png" alt="Alt text"></p>
+<ol>
+<li>频分复用（FDM）：是按频率分割多路信号的方法，即将信道的可用频带分成若干互不交叠的频段，每路信号占据其中的一个频段。<br>在接收端用适当的滤波器将多路信号分开，分别进行解调和终端处理。</li>
+<li>时分复用（TDM）：TDM帧：将传输时间划分为多个等长的时间段（TDM帧）。时隙：每个TDM帧划分成更小的时间段（时隙），每个用户在每个TDM帧中占用固定的时隙进行通信。类似分时OS的时间片概念。<br><img src="./jiwang5.gif" alt="Alt text"><img src="./jiwang6.png" alt="Alt text"><br>从图中易知，时分复用容易造成线路资源的浪费。</li>
+<li>统计时分复用</li>
+<li>波分复用</li>
+</ol>
+<hr>
+<h2 id="宽带接入技术"><a href="#宽带接入技术" class="headerlink" title="宽带接入技术"></a>宽带接入技术</h2><p>非对称数字用户线ADSL技术是用数字技术对现有的模拟电话用户线进行改造。</p>
+<p>第二代ADSL改进的地方：</p>
+<ol>
+<li>通过提高调制效率得到了更高的数据率。</li>
+<li>采用无缝速率自适应技术，可在运营中不中断通信和不产生误码的情况下，根据线路的实时状况，自适应地调整数据率</li>
+<li>改善线路质量评测和故障定位功能，这对提高网络的运行维护水平具有非常重要的意义</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
