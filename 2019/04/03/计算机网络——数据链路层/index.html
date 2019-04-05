@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="计算机网络——数据链路层"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">计算机网络——数据链路层</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-03</span>
+            <span class="time">20:36:06</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/计算机网络/">#计算机网络</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>计算机网络的第二篇博客<br><a id="more"></a><br>咕了几天，终于开始写数据链路层了。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>信道类型：点到点信道，广播信道。</li>
+<li>链路：一条点到点的物理线路段，中间没有任何其他的交换结点。一条链路只是一条通路的一个组成部分。</li>
+<li>数据链路：除了物理线路外，还需有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。</li>
+<li>帧：包括帧头，帧尾，校验位。</li>
+</ul>
+<h2 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h2><h3 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h3><p>封装成帧就是在一段数据的前后分别添加首部和尾部，这样就构成了一个帧。<br>接收端在收到物理层上交的比特流后，就能根据首部和尾部的标记，从比特流中识别帧的开始和结束。 </p>
+<p>首部和尾部的一个重要作用就是进行帧定界（即确定帧的界限）。此外，首部和尾部还包括许多必要的控制信息。+ 控制字符SOH（start of header）放在一帧的最前面，表示帧的首部开始。另一个控制字符EOT（end of transmission）表示帧的结束。<br><img src="/../images/jiwang7.png" alt=""></p>
+<h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><p>在数据帧的数据部分，有时候可能会出现与帧头或者帧尾这些帧的定界冲突的数据，于是会在这些冲突的数据前面加上“ESC”转义字符。而在接收端的数据链路层在将数据送往网络层之前删除这个插入的转义字符。我们把这种方法叫做字节填充法。而网络层实际上是不知道这些转义字符的，插入的转义字符在完成后便无效了，这便称为透明传输。</p>
+<h3 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h3><p>数据链路层点对点传输的第三个问题就是差错检测。就是我们所说的比特在传出过程当中可能会产生差错，1可能会变成0，0可能会变成1.这就是比特差错。为此，常采用循环冗余校验（CRC）。</p>
+<p>CRC的基本思想就是将传输的数据当作一个位数很长的数，将这个数除以另外的一个数。得到的余数作为校验数据附加到原数据后面。</p>
+<h4 id="循环冗余校验"><a href="#循环冗余校验" class="headerlink" title="循环冗余校验"></a>循环冗余校验</h4><p>现假定待传输的数据M = 101001(k = 6)，除数p = 1101 (n = 3)比n多一位<br>这n位冗余码可以用下面的方法得出。 </p>
+<ol>
+<li>用二进制的模2运算进行(2^n)乘M的运算,相当于在M后面添加n个0。<br>即M后面添加3个0 </li>
+<li>现在得到M = 101001000(k+n = 9)位的数除以除数p(n = 3)位，<br>得到商是Q(不关心)，余数R =001（n位）R就是冗余码FCS</li>
+</ol>
+<p>现在加上FCS后发送的帧是101001001<br><img src="/../images/jiwang8.png" alt=""></p>
+<p>这种添加冗余码的方法叫做帧检验序列FCS，而CRC循环冗余差错检测和这个并不是一个概念，然后我们可以对上面最后的数据进行CRC检验，方法就是把收到的每一帧都除以相同的除数，然后检查得到的余数。如果没有差错，那么得到的余数一定是0。<br><img src="/../images/jiwang9.png" alt=""></p>
+<p>所以总的来说，就是每一个接受到的帧经过了CRC检验后，只会有两种情况: </p>
+<ol>
+<li>余数为0，表示结果是正确的，这个时候自然就接收这个帧。 </li>
+<li>余数不为0，这样标识这个帧是有问题的，这样就丢弃这个帧。</li>
+</ol>
+<h2 id="点到点通信（ppp协议）"><a href="#点到点通信（ppp协议）" class="headerlink" title="点到点通信（ppp协议）"></a>点到点通信（ppp协议）</h2><p>ppp协议是一种点对点通信协议，通过异步或同步电路提供路由器到路由器或者主机到网络的连接。</p>
+<p>PPP支持IP、IPX和AppleTalk等多种网络层协议，还支持如下特性：</p>
+<p>同步/异步传输方式</p>
+<p>动态地址分配</p>
+<p>PAP认证</p>
+<p>CHAP认证</p>
+<p>MLP（多链路捆绑）</p>
+<h3 id="ppp的组成部分"><a href="#ppp的组成部分" class="headerlink" title="ppp的组成部分"></a>ppp的组成部分</h3><blockquote>
+<p>ppp协议是一个协议集，主要包含下面三个部分：</p>
+<ol>
+<li>一个将IP数据报封装到串行链路的方法。即支持异步链路（无奇偶检验的比特数据），也支持面向比特色同步链路。</li>
+<li>一个用来建立、配置和测试数据链路连接的链路控制协议LCP ( Link Control Protocol ）。</li>
+<li>一套网络控制协议 NCP ( Network Control Protocol )，其中的每一个协议支持不同的网络层协议，如IP，OSI的网络层、DECnet、AppleTalk等。</li>
+</ol>
+</blockquote>
+<h3 id="ppp的帧格式"><a href="#ppp的帧格式" class="headerlink" title="ppp的帧格式"></a>ppp的帧格式</h3><p><img src="/../images/jiwang10.png" alt=""></p>
+<ul>
+<li>Flag：标志位、用于标识帧的开始和结束.</li>
+<li>Addr：地址位，用于标识Station地址。PPP帧发源自HDLC帧，保留了此字段。对于PPP帧来说，由于是点对点协议，不需要地址位。PPP帧的地址位恒为0xFF。（PPP协议被运用在点对点链路上，不需要知道对端的链路地址，因为点对点链路，如PPPoE帧头中，已经确定了对端的地址）。</li>
+<li>Control：在DHLC帧中，Control位用来标识帧的顺序和重传行为，但由于该功能在PPP协议中并没有普遍实现，因此PPP帧中，Control值固定为）0x03.</li>
+<li>Protocol：协议字段，标识所携带报文的类型。如0x0021时，表示PPP帧的信息字段是IP数据报文。不同的Protocol标识Data字段的不同含义。</li>
+<li>Data： 信息字段，即PPP帧的负载(如LCP帧、NCP帧）.信息域缺省时最大长度不能超过1500字节，其中包括填充域的内容。</li>
+<li>Pad: 填充字段。</li>
+<li>FCS：循环冗余码。 覆盖了两个Flag（不包括）之间的字段。</li>
+</ul>
+<h3 id="ppp工作流程"><a href="#ppp工作流程" class="headerlink" title="ppp工作流程"></a>ppp工作流程</h3><ul>
+<li>LCP协商阶段：创建链路完成链路的启动、测试、任选参数的协商和最终链路的断开 </li>
+<li>认证阶段： LCP向对端发送协商请求， 双方确定链路的配置参数后，LCP向认证层发送Up事件。常用的认证协议有PAP（口令验证协议）和CHAP（挑战握手验证协议）。 </li>
+<li>NCP协商阶段（IPCP等协议）：调用链路层创建阶段选定的网络控制层协议。主要包括动态分配IP地址功能等。常用的NCP协议有IPCP协议。 </li>
+<li>会话维持阶段：进行PPPoE心跳保活 </li>
+<li>PPP正常终结：NCP分别终结，然后LCP终结，最后物理层终结</li>
+</ul>
+<h2 id="广播信道的数据链路层"><a href="#广播信道的数据链路层" class="headerlink" title="广播信道的数据链路层"></a>广播信道的数据链路层</h2><h3 id="局域网的数据链路层"><a href="#局域网的数据链路层" class="headerlink" title="局域网的数据链路层"></a>局域网的数据链路层</h3><p>广播信道可以进行一对多通信，局域网使用的就是广播信道。局域网为一个单位所共有，且地理范围和站点数目均有限。常见的局域网拓扑包括星形网、环形网、总线网、树形网。需要解决的一个问题是，如何让多个用户能够合理而方便的使用共享信道，在物理媒介上不产生信号冲突。在技术上有两种方案：</p>
+<ol>
+<li><p>静态信道划分：在物理上使用频分复用、时分复用、码分复用等，但这中方式的信道利用率低且成本高，不适合于局域网。</p>
+</li>
+<li><p>动态媒体接入控制：随机接入和受控接入，此内容是以太网重点内容，因此下面讨论最重要的一个协议CSMA/D。</p>
+</li>
+</ol>
+<h4 id="CSMA-DC协议"><a href="#CSMA-DC协议" class="headerlink" title="CSMA/DC协议"></a>CSMA/DC协议</h4><p>以太网是一种广播网络，每个节点都可以看到在网络中发送的所有信息。那么就决定了在同一时间只能允许一台计算机发送信息，否则各个计算机之间就会产生干扰，导致大家都无法正常发送。以太网采用CSMA/DC协议，它是载波侦听多点接入/冲突监测（Carrier Sense Multiple Access with Collision Detection）。</p>
+<ul>
+<li><p>多点接入：以太网实质是总线型网络，许多计算机以多点接入的方式连接在同一根线上。</p>
+</li>
+<li><p>载波监听：每个计算机发送数据前先要监测总线上是否有其他计算机正在发送数据。如果有，就暂时不发送数据，等待信道变为空闲时再发送。</p>
+</li>
+<li><p>碰撞检测：碰撞检测即边发送边监听，即适配器边发送信号，边检测信道上的信号电压变化情况，以判断自己发送数据时是否有其他站点也在发送数据。当几个站点同时在总线上发送信号时，信道上电压相互叠加导致变化幅度变大。当适配器检测到信道电压幅度超过某阈值时，就认为产生了碰撞。每一个正在发送数据的站点一旦检测到了碰撞，将立刻停止发送，避免继续浪费资源，然后等待一定时间后再次发送。</p>
+</li>
+</ul>
+<blockquote>
+<p>CSMA/CD协议（Carrier Sense Multiple Access with Collision Detection）即带冲突检测的载波监听多路访问技术(载波监听多点接入/碰撞检测)，是一种争用型的介质访问控制协议。各工作站在发送数据前，需先侦听信道是否空闲。若空闲，则立即发送数据；若信道忙碌，则等待一段时间至信道中的信息传输结束后再发送数据；若在上一段信息发送结束后，同时有两个或两个以上的节点都提出发送请求，则判定为冲突；若侦听到冲突，则所有节点立即停止发送数据，等待一段随机时间，再重新尝试发送。</p>
+</blockquote>
+<h4 id="二进制指数类型退避算法"><a href="#二进制指数类型退避算法" class="headerlink" title="二进制指数类型退避算法"></a>二进制指数类型退避算法</h4><p>发生碰撞的站在停止发送数据后，要推迟（退避）一个随机时间才能再发送数据。确定基本退避时间，一般是取为争用期 2t。定义重传次数 k ，k &lt;=10，即k = Min[重传次数, 10]。从整数集合[0,1,…, (2k -1)]中随机地取出一个数，记为 r。重传所需的时延就是 r 倍的基本退避时间。当重传达 16 次仍不能成功时即丢弃该帧，并向高层报告。</p>
+<p>以太网取 51.2 毫秒 为争用期的长度。对于 10 Mb/s 以太网，在争用期内可发送512 bit，即 64 字节。以太网在发送数据时，若前 64 字节没有发生冲突，则后续的数据就不会发生冲突。</p>
+<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><p>以太网不是一种具体的网络，而是一种技术标准；既包含了数据链路层的内容，也包含了一些物理层的内容。 </p>
+<h3 id="MAC地址"><a href="#MAC地址" class="headerlink" title="MAC地址"></a>MAC地址</h3><ol>
+<li>MAC地址用来识别数据链路层中相连的节点</li>
+<li>长度为48位，及6个字节。一般用16进制数字加上冒号的形式来表示(例如: 08:00:27:03:fb:19)</li>
+<li>mac地址在网卡出厂时就确定了，不能修改。mac地址通常是唯一的(虚拟机中的mac地址不是真实的mac地址, 可能会冲突; 也有些网卡支持用户配置mac地址)</li>
+</ol>
+<h3 id="网桥"><a href="#网桥" class="headerlink" title="网桥"></a>网桥</h3><p>在数据链路层扩展局域网。网桥工作在数据链路层，它根据 MAC 帧的目的地址对收到的帧进行转发。网桥具有过滤帧的功能。当网桥收到一个帧时，并不是向所有的接口转发此帧，而是先检查此帧的目的 MAC 地址，然后再确定将该帧转发到哪一个接口<br><img src="/../images/jiwang11.png" alt=""><br>使用网桥的好处是可以过滤通信量， 扩大了物理范围，提高了可靠性可互连不同物理层、不同 MAC 子层和不同速率（如10 Mb/s 和 100 Mb/s 以太网）的局域网。</p>
+<p>缺点则是存储转发增加了时延，在MAC 子层并没有流量控制功能，具有不同 MAC 子层的网段桥接在一起时时延更大。</p>
+<h3 id="拓展以太网"><a href="#拓展以太网" class="headerlink" title="拓展以太网"></a>拓展以太网</h3><h4 id="1-在物理上拓展以太网"><a href="#1-在物理上拓展以太网" class="headerlink" title="1. 在物理上拓展以太网"></a>1. 在物理上拓展以太网</h4><p><strong style="color:red">以太网上的主机之间的距离不能太远(例如，10BASE-T以太网的两主机之间的距离不超过200米)，否则主机发送的信号经过铜线的传输就会衰减到使CSMA/CD协议无法正常使用。</strong></p>
+<p>过去，广泛使用粗缆或细缆以太网时，常使用工作在物理层的转发器来扩展以太网的地理覆盖范围。</p>
+<p>现在，双绞线以太网成为以太网的主流类型，扩展主机和集线器之间的距离的一种简单方法就是使用光纤(通常是一对光纤)和一对光纤调制解调器。</p>
+<p><strong style="color:red">光纤调制解调器的作用，是进行电信号和光信号的转换。 </strong></p>
+<h4 id="在数据链路层上拓展以太网"><a href="#在数据链路层上拓展以太网" class="headerlink" title="在数据链路层上拓展以太网"></a>在数据链路层上拓展以太网</h4><p><strong style="color:red">在数据链路层扩展以太网要使用网桥。</strong></p>
+<p>网桥工作在数据链路层，它根据MAC帧的目的地址对收到的帧进行转发或过滤。当网桥收到一个帧时，并不是向所有的接口转发这个帧，而是检查此帧的目的MAC地址，然后再确定将该帧转发到哪一个接口，或者是把它丢弃(即过滤)。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
