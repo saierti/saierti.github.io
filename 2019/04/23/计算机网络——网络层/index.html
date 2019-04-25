@@ -100,7 +100,7 @@
           <!-- Date -->
           <span class="date-time info">On
             <span class="date">2019-04-23</span>
-            <span class="time">18:24:04</span>
+            <span class="time">18:26:14</span>
           </span>
           
         </div>
@@ -116,7 +116,8 @@
         
         <!-- Post Main Content -->
         <div class="post-content">
-          <h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><h3 id="IP地址和MAC地址"><a href="#IP地址和MAC地址" class="headerlink" title="IP地址和MAC地址"></a>IP地址和MAC地址</h3><p>要理解ARP协议的工作原理必须先理解IP地址和MAC地址的区别，MAC地址是数据链路层和物理层使用的地址，而IP地址是网络层和以上各层使用的地址，是一种逻辑地址（IP地址使用软件实现的）如下图：<br><img src="../images/jiwang12.png" alt=""><br>在发送数据时，数据从高层到低层，然后才到通信链路上传输。使用IP地址的IP数据报一旦交给了数据链路层，就被封装成了MAC帧。MAC帧在传送时使用的源地址和目的地址都是硬件地址。连接在通信链路上的设备（主机或路由器）在接收MAC帧时，根据是MAC帧首部的硬件地址。在数据链路层看不到隐藏在MAC帧中的IP地址。只有在剥去MAC帧的首部和尾部后把MAC层的数据交给网络层后，网络层才能在IP数据报的首部中找到源IP地址和目的IP地址。 </p>
+          <p>计算机网络网络层<br><a id="more"></a></p>
+<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><h3 id="IP地址和MAC地址"><a href="#IP地址和MAC地址" class="headerlink" title="IP地址和MAC地址"></a>IP地址和MAC地址</h3><p>要理解ARP协议的工作原理必须先理解IP地址和MAC地址的区别，MAC地址是数据链路层和物理层使用的地址，而IP地址是网络层和以上各层使用的地址，是一种逻辑地址（IP地址使用软件实现的）如下图：<br><img src="../images/jiwang12.png" alt=""><br>在发送数据时，数据从高层到低层，然后才到通信链路上传输。使用IP地址的IP数据报一旦交给了数据链路层，就被封装成了MAC帧。MAC帧在传送时使用的源地址和目的地址都是硬件地址。连接在通信链路上的设备（主机或路由器）在接收MAC帧时，根据是MAC帧首部的硬件地址。在数据链路层看不到隐藏在MAC帧中的IP地址。只有在剥去MAC帧的首部和尾部后把MAC层的数据交给网络层后，网络层才能在IP数据报的首部中找到源IP地址和目的IP地址。 </p>
 <h3 id="ARP地址解析协议"><a href="#ARP地址解析协议" class="headerlink" title="ARP地址解析协议"></a>ARP地址解析协议</h3><p>地址解析协议（Address Resolution Protocol），其基本功能为透过目标设备的IP地址，查询目标设备的MAC地址，以保证通信的顺利进行。它是IPv4中网络层必不可少的协议，不过在IPv6中已不再适用，并被邻居发现协议（NDP）所替代。</p>
 <h4 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h4><p>在以太网协议中规定，同一局域网中的一台主机要和另一台主机进行直接通信，必须要知道目标主机的MAC地址。而在TCP/IP协议中，网络层和传输层只关心目标主机的IP地址。这就导致在以太网中使用IP协议时，数据链路层的以太网协议接到上层IP协议提供的数据中，只包含目的主机的IP地址。于是需要一种方法，根据目的主机的IP地址，获得其MAC地址。这就是ARP协议要做的事情。所谓地址解析就是主机在发送帧前将目标IP地址转换成目标MAC地址的过程。</p>
 <h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>当主机A要向本局域网上的某个主机B发送IP数据报时，就先在其ARP高速缓存中查找有无主机B的IP地址。如果有，就在ARP高速缓存中查出其对应的硬件地址，再把其硬件地址写入到MAC帧，然后通过局域网把该MAC帧发往此硬件地址。<br>（1）ARP进程在本局域网上广播发送一个ARP请求分组如下：<br>    <img src="../images/jiwang13.png" alt=""></p>
@@ -244,7 +245,7 @@
 </li>
 <li><p>支持验证：支持基于区域和接口的报文验证，以保证报文交互的安全性。</p>
 </li>
-<li><p>组播发送：在某些类型的链路上以组播地址发送协议报文，减少对其他设备的干扰</p>
+<li><p>组播发送：在某些类型的链路上以组播地址发送协议报文，减少对其他设备的干扰.</p>
 </li>
 </ol>
 
