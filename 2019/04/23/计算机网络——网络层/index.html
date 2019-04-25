@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="计算机网络——网络层"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">计算机网络——网络层</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-04-23</span>
+            <span class="time">16:54:23</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/计算机网络/">#计算机网络</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><h3 id="IP地址和MAC地址"><a href="#IP地址和MAC地址" class="headerlink" title="IP地址和MAC地址"></a>IP地址和MAC地址</h3><p>要理解ARP协议的工作原理必须先理解IP地址和MAC地址的区别，MAC地址是数据链路层和物理层使用的地址，而IP地址是网络层和以上各层使用的地址，是一种逻辑地址（IP地址使用软件实现的）如下图：<br><img src="../images/jiwang12.png" alt=""><br>在发送数据时，数据从高层到低层，然后才到通信链路上传输。使用IP地址的IP数据报一旦交给了数据链路层，就被封装成了MAC帧。MAC帧在传送时使用的源地址和目的地址都是硬件地址。连接在通信链路上的设备（主机或路由器）在接收MAC帧时，根据是MAC帧首部的硬件地址。在数据链路层看不到隐藏在MAC帧中的IP地址。只有在剥去MAC帧的首部和尾部后把MAC层的数据交给网络层后，网络层才能在IP数据报的首部中找到源IP地址和目的IP地址。 </p>
+<h3 id="ARP地址解析协议"><a href="#ARP地址解析协议" class="headerlink" title="ARP地址解析协议"></a>ARP地址解析协议</h3><p>地址解析协议（Address Resolution Protocol），其基本功能为透过目标设备的IP地址，查询目标设备的MAC地址，以保证通信的顺利进行。它是IPv4中网络层必不可少的协议，不过在IPv6中已不再适用，并被邻居发现协议（NDP）所替代。</p>
+<h4 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h4><p>在以太网协议中规定，同一局域网中的一台主机要和另一台主机进行直接通信，必须要知道目标主机的MAC地址。而在TCP/IP协议中，网络层和传输层只关心目标主机的IP地址。这就导致在以太网中使用IP协议时，数据链路层的以太网协议接到上层IP协议提供的数据中，只包含目的主机的IP地址。于是需要一种方法，根据目的主机的IP地址，获得其MAC地址。这就是ARP协议要做的事情。所谓地址解析就是主机在发送帧前将目标IP地址转换成目标MAC地址的过程。</p>
+<h4 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h4><p>当主机A要向本局域网上的某个主机B发送IP数据报时，就先在其ARP高速缓存中查找有无主机B的IP地址。如果有，就在ARP高速缓存中查出其对应的硬件地址，再把其硬件地址写入到MAC帧，然后通过局域网把该MAC帧发往此硬件地址。<br>（1）ARP进程在本局域网上广播发送一个ARP请求分组如下：<br>    <img src="../images/jiwang13.png" alt=""></p>
+<p>（2）本局域网上所有的主机上运行的ARP进程都收到此ARP请求分组。</p>
+<p>（3）主机B在ARP分组中见到自己的IP地址就向A发送ARP响应分组，并写入自己的硬件地址，相应分组是普通的单播。</p>
+<p>（4）主机A收到主机B的ARP响应分组后，就在其ARP高速缓存中写入主机B的IP地址到硬件地址的映射。</p>
+<p>（5）另外，当发送主机和目的主机不在同一个局域网中时，即便知道目的主机的MAC地址，两者也不能直接通信，必须经过路由转发才可以。所以此时，发送主机通过ARP协议获得的将不是目的主机的真实MAC地址，而是一台可以通往局域网外的路由器的MAC地址。于是此后发送主机发往目的主机的所有帧，都将发往该路由器，通过它向外发送。这种情况称为委托ARP或ARP代理。</p>
+<h4 id="ARP欺骗"><a href="#ARP欺骗" class="headerlink" title="ARP欺骗"></a>ARP欺骗</h4><p>局域网中的主机1与主机2通信，主机1会先发送ARP请求包（请求包中有2的IP地址），2发送ARP响应包给1,1获得主机1的MAC地址，1利用MAC地址给2传输数据。这里主机A通过使用Abel&amp;cain软件，主动给目标B发送ARP回应包（数据包中携带IP为网关的IP，MAC是A主机的MAC），让目标B更新自己的ARP缓存表。更新后B本地ARP表中网关的MAC地址就是主机A的MAC地址，在主机B看来网关就是A，达到欺骗局域网中某个特定目标的目的。</p>
+<blockquote>
+<p>推荐软件：网络执法官，p2p终结者</p>
+</blockquote>
+<h2 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h2><blockquote>
+<p>网际控制报文协议，用于测试网络层是否通畅。</p>
+</blockquote>
+<p>在IP通信中，经常有数据包到达不了对方的情况。原因是，在通信途中的某处的一个路由器由于不能处理所有的数据包，就将数据包一个一个丢弃了。或者，虽然到达了对方，但是由于搞错了端口号，服务器软件可能不能接受它。这时，在错误发生的现场，为了联络而飞过来的信鸽就是ICMP 报文。在IP 网络上，由于数据包被丢弃等原因，为了控制将必要的信息传递给发信方。ICMP 协议是为了辅助IP 协议，交换各种各样的控制信息而被制造出来的。</p>
+<p>ICMP协议的功能主要有： </p>
+<ol>
+<li>确认IP包是否成功到达目标地址 。</li>
+<li>通知在发送过程中IP包被丢弃的原因。 <h4 id="ICMP报文格式"><a href="#ICMP报文格式" class="headerlink" title="ICMP报文格式"></a>ICMP报文格式</h4>ICMP报文包含：ICMP首部（8字节）+IP数据报首部+IP数据报数据区的前8个字节。<br><img src="../images/jiwang14.png" alt=""></li>
+</ol>
+<p>ICMP大概分为两类报文：<br>一类是通知出错原因，一类是用于诊断查询<br><img src="../images/jiwang15.png" alt=""></p>
+<h4 id="ping命令"><a href="#ping命令" class="headerlink" title="ping命令"></a>ping命令</h4><p>ping，因特网包探索器，用于测试网络连接量。ping发送一个ICMP回声请求消息给目的地并报告是否收到所希望的ICMP回声应答。（其中TTL为包的生存时间，每经过一个路由器TTL会自动-1。当TTL为0时数据包会自动消亡，防止数据包在网上不断循环）</p>
+<p>TTL根据系统不同，初始值不同：</p>
+<ul>
+<li>Linux  64</li>
+<li>window 128</li>
+<li>Unix 255</li>
+</ul>
+<blockquote>
+<p>ping+网址+ -t：向一个网址持续发送回声请求</p>
+</blockquote>
+<blockquote>
+<p>ping /?： 打开ping使用指南</p>
+</blockquote>
+<blockquote>
+<p>ping -l+字节数+网址：向网址发送指定字节大小的数据包</p>
+</blockquote>
+<blockquote>
+<p>ping -i：设置TTl，能够跟踪数据包途径的路由器。</p>
+</blockquote>
+<blockquote>
+<p>pathping：跟踪数据包路径，计算丢包情况。</p>
+</blockquote>
+<h2 id="IGMP协议"><a href="#IGMP协议" class="headerlink" title="IGMP协议"></a>IGMP协议</h2><h4 id="组播"><a href="#组播" class="headerlink" title="组播"></a>组播</h4><p>组播协议允许将一台主机发送的数据通过网络路由器和交换机复制到多个加入此组播的主机，是一种一对多的通讯方式。</p>
+<p>组播协议与现在广泛使用的单播协议的不同之处在于，一个主机用单播协议向n个主机发送相同的数据时，发送主机需要分别向n个主机发送，共发送n次。一个主机用组播协议向n个主机发送相同的数据时，只要发送1次，其数据由网络中的路由器和交换机逐级进行复制并发送给各个接收方，这样既节省服务器资源也节省网络主干的带宽资源。</p>
+<p>与广播协议相比，只有组播接收方向路由器发出请求后，网络路由器才复制一份数据给接收方，从而节省接收方的带宽。而广播方式无论接收方是否需要，网络设备都将所有广播信息向所有设备发送，从而大量占据接收方的接入带宽。</p>
+<h4 id="IGMP"><a href="#IGMP" class="headerlink" title="IGMP"></a>IGMP</h4><p>网路群组管理协议（Internet Group Management Protocol或简写IGMP)是用于管理网路协议多播组成员的一种通信协议。IP主机和相邻的路由器利用IGMP来创建多播组的组成员。像ICMP用于单播连接一样，IGMP也是IP多播说明的一个完整部分。 IGMP为互联网协议的一种，属于开放系统链接(OSI) 模块的第三层协议，IP主机用它将主机的多点发送成员人数报告给临近的多点发送路由器。</p>
+<p>IGMP目前有三个版本，目前用的最多的是IGMPv2。IGMPv1主要基于查询和响应机制来完成对组播组成员的管理；IGMPv2增加了查询器选举机制和离开组机制；IGMPv3在兼容和继承IGMPv1和IGMPv2的基础上，进一步增强了主机的控制能力，并增强了查询和报告报文的功能。</p>
+<h2 id="IP数据包"><a href="#IP数据包" class="headerlink" title="IP数据包"></a>IP数据包</h2><p><img src="../images/jiwang16.jpg" alt=""><br>IP数据包由首部和数据两个部分组成。首部的前一部分是固定长度的，共20个字节，后面是一些可选的字段。</p>
+<ul>
+<li>版本：用于表示TCP/IP协议的版本</li>
+<li>区分服务：可以区分哪些数据包优先传送（QoS）</li>
+<li>总长度：2个字节，16bit，用于表示数据包的总长，数据包最多可放（2的16次方-1）个字节。<blockquote>
+<p>数据链路层支持发送的IP数据包最长为1500字节，但明显网络层支持的字节数远大于数据链路层发送支持的字节数，所以当网络层的IP数据包大于数据链路层所支持的字节数时，就会将IP数据包分片传送。</p>
+</blockquote>
+</li>
+<li>标志：用于分辨次数据宝是完整的数据包还是分片后的部分数据包。</li>
+<li>标识：用于标识不同数据包，也可标识分片后的数据包，成为辨别它们是来自同一数据包的标识。</li>
+<li>片偏移：当一个数据包是一个完整的数据包的分片时，片偏移用来表示该数据包的第一个字节是分片前的大数据包的第几个字节。</li>
+<li>生存时间：TTL，防止包在网络上死循环。</li>
+<li><p>协议：数据本分使用的协议。个协议对应的协议号如下：</p>
+<blockquote>
+<p>ICMP：1</p>
+</blockquote>
+<blockquote>
+<p>IGMP：2</p>
+</blockquote>
+<blockquote>
+<p>TCP：6</p>
+</blockquote>
+<blockquote>
+<p>UDP：17</p>
+</blockquote>
+<blockquote>
+<p>IPV6：41</p>
+</blockquote>
+<blockquote>
+<p>OSPF：89</p>
+</blockquote>
+</li>
+<li>首部校验和：发送端将首部得20字节按每16位分开（检验和部分先全部置0），然后进行反码算术运算求和得到的16位数再取反码，作为检验和。接收端收到后再按每16位排列，进行反码算术运算求和后得到的16位数再取反码，若结果为0，则保留；否则认为发送时首部发生改变，将该数据包丢弃掉。</li>
+<li>源地址，目的地址：发送端和接收端的IP地址。</li>
+<li>可选字段：增加IP数据包的功能。</li>
+</ul>
+<h2 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h2><p>静态路由通常是由管理员手动配置的路由信息。一般用于较为简单的网络中，这种环境下，网络的结构信息可以说是一目了然。但当网络发生结构改变时，就需要网管去手动修改路由表中的路由信息。默认情况下静态路由是私有的，其它路由器是不会接收到的。</p>
+<h2 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h2><h3 id="RIP路由协议"><a href="#RIP路由协议" class="headerlink" title="RIP路由协议"></a>RIP路由协议</h3><p>RIP是Routing Information Protocol（路由信息协议）的简称。它是一种较为简单的内部网关协议IGP（Interior Gateway Protocol），主要用于规模较小的网络中，比如校园网以及结构较简单的地区性网络。对于更为复杂的环境和大型网络，一般不使用RIP。</p>
+<p>RIP是一种基于距离矢量（Distance-Vector）算法的协议，它通过UDP报文进行路由信息的交换，使用的端口号为520。</p>
+<p>RIP使用跳数（Hop Count）来衡量到达目的地址的距离，称为度量值。在RIP中，缺省情况下，路由器到与它直接相连网络的跳数为0，通过一个路由器可达的网络的跳数为1，其余依此类推。也就是说，度量值等于从本网络到达目的网络间的路由器数量。为限制收敛时间，RIP规定度量值取0～15之间的整数，大于或等于16的跳数被定义为无穷大，即目的网络或主机不可达。由于这个限制，使得RIP不可能在大型网络中得到应用。</p>
+<p>为提高性能，防止产生路由循环，RIP支持水平分割（Split Horizon）和毒性反转（Poison Reverse）功能。</p>
+<p>由于RIP的实现较为简单，在配置和维护管理方面也远比OSPF和IS-IS容易，因此在实际组网中仍有广泛的应用。</p>
+<p>RIP有两个版本：RIP V1和RIP V2。</p>
+<ol>
+<li><p>RIP V1是有类别路由协议（Classful Routing Protocol），它只支持以广播方式发布协议报文。RIP-1的协议报文中没有携带掩码信息，它只能识别A、B、C类这样的自然网段的路由，因此RIP-1无法支持路由聚合，也不支持不连续子网（Discontiguous Subnet）。</p>
+</li>
+<li><p>RIP V2是一种无分类路由协议（Classless Routing Protocol），与RIP-1相比，它有以下优势：</p>
+<ol>
+<li><p>支持外部路由标记（Route Tag），可以在路由策略中根据Tag对路由进行灵活的控制。</p>
+</li>
+<li><p>报文中携带掩码信息，支持路由聚合和CIDR（Classless Inter-Domain Routing）。</p>
+</li>
+<li><p>支持指定下一跳，在广播网上可以选择到最优下一跳地址。</p>
+</li>
+<li><p>支持使用组播方式发送更新报文，只有RIP-2路由器才能收到协议报文，减少资源消耗。</p>
+</li>
+<li><p>支持对协议报文进行验证，并提供明文验证和MD5验证两种方式，增强安全性。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="OSPF路由协议"><a href="#OSPF路由协议" class="headerlink" title="OSPF路由协议"></a>OSPF路由协议</h3><p>OSPF（Open Shortest Path First）是IETF组织开发的一个基于链路状态的内部网关协议。目前针对IPv4协议使用的是OSPF Version 2（RFC2328）；针对IPv6协议使用OSPF Version 3（RFC2740）。</p>
+<h4 id="OSPF的特性"><a href="#OSPF的特性" class="headerlink" title="OSPF的特性"></a>OSPF的特性</h4><ol>
+<li><p>适应范围广：支持大规模网络，最多可支持几百台路由器。</p>
+</li>
+<li><p>支持掩码：由于OSPF报文中携带掩码信息，所以OSPF协议不受自然掩码的限制，对VLSM提供很好的支持。</p>
+</li>
+<li><p>快速收敛：在网络的拓扑结构发生变化后立即发送更新报文，使这一变化在自治系统中同步。</p>
+</li>
+<li><p>无自环：由于OSPF根据收集到的链路状态用最短路径树算法计算路由，从算法本身保证了不会生成自环路由。</p>
+</li>
+<li><p>区域划分：允许自治系统的网络被划分成区域来管理，区域间传送的路由信息被进一步抽象，从而减少了占用的网络带宽。</p>
+</li>
+<li><p>等价路由：支持到同一目的地址的多条等价路由。</p>
+</li>
+<li><p>路由分级：使用4类不同的路由，按优先顺序来说分别是：区域内路由、区域间路由、第一类外部路由、第二类外部路由。</p>
+</li>
+<li><p>支持验证：支持基于区域和接口的报文验证，以保证报文交互的安全性。</p>
+</li>
+<li><p>组播发送：在某些类型的链路上以组播地址发送协议报文，减少对其他设备的干扰。</p>
+</li>
+</ol>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
