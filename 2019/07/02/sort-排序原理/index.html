@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="sort()排序原理"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">sort()排序原理</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-02</span>
+            <span class="time">13:32:20</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/javascript/">#javascript</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <p>前几天刷了一道leetcode，用了js的sort方法进行排序，但发现运行速度并不理想，在排查的时候顺便看了一下sort的排序原理，总体来说<br>sort方法时建立在快速排序的基础上并进行优化的排序方法。</p>
+<p>先简单介绍一下sort的用法和快排算法</p>
+<h2 id="sort-使用方法"><a href="#sort-使用方法" class="headerlink" title="sort()使用方法"></a>sort()使用方法</h2><p>用于对数组的元素进行排序,并返回数组。默认排序顺序是根据字符串Unicode码点。<br>语法：arrayObject.sort(sortby)；参数sortby可选。规定排序顺序。必须是函数。<br>注：如果调用该方法时没有使用参数，将按字母顺序对数组中的元素进行排序，说得更精确点，是按照字符编码的顺序进行排序。要实现这一点，首先应把数组的元素都转换成字符串（如有必要），以便进行比较。</p>
+<p>如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：<br>若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。<br>若 a 等于 b，则返回 0。<br>若 a 大于 b，则返回一个大于 0 的值。</p>
+<h2 id="快速排序算法"><a href="#快速排序算法" class="headerlink" title="快速排序算法"></a>快速排序算法</h2><p>快速排序算法之所以被称为快速排序算法，是因为它能达到最佳和平均时间复杂度均为O(nlogn)，是一种应用非常广泛的排序算法。它的原理并不复杂，先找出一个基准元素（pivot，任意元素均可），然后让所有元素跟基准元素比较，比基准元素小的，放到一个集合中，其他的放到另一个集合中；再对这两个集合执行快速排序，最终得到完全排序好的序列。</p>
+<p>所以快速排序的核心是不断把原数组做切割，切割成小数组后再对小数组进行相同的处理，这是一种典型的分治的算法设计思路。实现一个简单的快速排序算法并不困难。我们不妨试一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function QuickSort(arr, func) &#123;</span><br><span class="line">    if (!arr || !arr.length) return [];</span><br><span class="line">    if (arr.length === 1) return arr;</span><br><span class="line">    var pivot = arr[0];</span><br><span class="line">    var smallSet = [];</span><br><span class="line">    var bigSet = [];</span><br><span class="line">    for (var i = 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">        if (func(arr[i], pivot) &lt; 0) &#123;</span><br><span class="line">            smallSet.push(arr[i]);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            bigSet.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return QuickSort(smallSet, func).concat([pivot]).concat(QuickSort(bigSet, func));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="sort排序原理"><a href="#sort排序原理" class="headerlink" title="sort排序原理"></a>sort排序原理</h2><p>我们可以注意到，上面的算法中，我们其实是创建了一个新的数组作为计算结果，从空间使用的角度看是不经济的。javascript的快速排序算法中并没有像上面的代码那样创建一个新的数组，而是在原数组的基础上，通过交换元素位置实现排序。所以，类似于push、pop、splice这几个方法，sort方法也是会修改原数组对象的！</p>
+<p>我们前面说过，快速排序的核心在于切割数组。那么如果只是在原数组上交换元素，怎么做到切割数组呢？很简单，我们并不需要真的把数组切割出来，只需要记住每个部分起止的索引号。举个例子，假设有一个数组[12, 4, 9, 2, 18, 25]，选取第一项12为基准元素，那么按照原始的快速排序算法，会把这个数组切割成两个小数组：[4, 9, 2], 12, [18, 25]。但是我们同样可以不切割，先通过比较、交换元素，将原数组修改成[4, 9, 2, 12, 18, 25]，再根据基准元素12的位置，认为0~2号元素是一组，4~5号元素是一组，为了表述方便，我这里将比基准元素小的元素组成的分区叫小数分区，另一个分区叫大数分区。这很像电脑硬盘的分区，并不是真的把硬盘分成了C盘、D盘，而是记录下一些起止位置，在逻辑上分成了若干个分区。类似的，在快速排序算法中，我们也把这个过程叫做分区（partition）。所以相应的，我也要修改一下之前的说法了，快速排序算法的核心是分区。</p>
+<p>说了这么多，还是实现一个带分区的快速排序吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function swap(arr, from, to) &#123;</span><br><span class="line">    if (from == to) return;</span><br><span class="line">    var temp = arr[from];</span><br><span class="line">    arr[from] = arr[to];</span><br><span class="line">    arr[to] = temp;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">function QuickSortWithPartition(arr, func, from, to) &#123;</span><br><span class="line">    if (!arr || !arr.length) return [];</span><br><span class="line">    if (arr.length === 1) return arr;</span><br><span class="line">    from = from || 0;</span><br><span class="line">    to = to || arr.length - 1;</span><br><span class="line">    var pivot = arr[from];</span><br><span class="line">    var smallIndex = from;</span><br><span class="line">    var bigIndex = from + 1;</span><br><span class="line">    for (; bigIndex &lt;= to; bigIndex++) &#123;</span><br><span class="line">        if (func(arr[bigIndex], pivot) &lt; 0) &#123;</span><br><span class="line">            smallIndex++;</span><br><span class="line">            swap(arr, smallIndex, bigIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(arr, smallIndex, from);</span><br><span class="line">    QuickSortWithPartition(arr, func, from, smallIndex - 1);</span><br><span class="line">    QuickSortWithPartition(arr, func, smallIndex + 1, to);</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>看起来代码长了很多，不过并不算复杂。首先由于涉及到数组元素交换，所以先实现一个swap方法来处理元素交换。快速排序算法中，增加了两个参数，from和to，分别表示当前要处理这个数组的哪个部分，from是起始索引，to是终止索引；如果这两个参数缺失，则表示处理整个数组。</p>
+<p>同样的，我用最简单的方式选取基准元素，即所要处理分区的第一个元素。然后我定义了smallIndex和bigIndex两个变量，分别表示的是左侧小数分区的终止索引和右侧大数分区的终止索引。什么意思？就是说从第一个元素（基准元素）到第smallIndex个元素间的所有元素都比基准元素小，从第smallIndex + 1到第bigIndex个元素都比基准元素大。一开始没有比较时，很显然这两部分分区都是空的，而比较的过程很简单，直接是bigIndex向右移，一直移到分区尾部。每当bigIndex增加1，我们会进行一次判断，看看这个位置上的元素是不是比基准元素大，如果大的话，不用做处理，它已经处于大数分区了；但如果比基准元素小，就需要进行一次交换。怎么交换呢？首先将smallIndex增加1，意味着小数分区增加了一个元素，但此时smallIndex位置的元素很明显是一个大数（这个说法其实不对，如果之前大数分区里面没有元素，此时smallIndex和bigIndex相等，但对交换没有影响），而在bigIndex位置的元素是一个小数，所以只要把这两个位置的元素交换一下就好了。</p>
+<p>最后可别忘了一开始的起始元素，它的位置并不正确，不过只要将它和smallIndex位置的元素交换位置就可以了。同时我们得到了对应的小数分区[from…smallIndex - 1]和大数分区[smallIndex + 1…to]。再对这两个分区递归排序即可。</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
