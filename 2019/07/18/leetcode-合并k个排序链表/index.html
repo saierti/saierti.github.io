@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <!-- Html Head Tag-->
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <!-- Open Graph Data -->
+  <meta property="og:title" content="leetcode:合并k个排序链表"/>
+  <meta property="og:description" content="" />
+  <meta property="og:site_name" content="saierti"/>
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="http://yoursite.com"/>
+  
+    <link rel="alternate" href="/atom.xml" title="saierti" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <!-- Site Title -->
+  <title>saierti</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="/css/style.light.css">
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+  <body>
+    <!-- Page Header -->
+
+
+<header class="site-header header-background" style="background-image: url(/img/default-banner-dark.jpg)">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="page-title with-background-image">
+          <p class="title">leetcode:合并k个排序链表</p>
+          <p class="subtitle"></p>
+        </div>
+        <div class="site-menu with-background-image">
+          <ul>
+            
+              <li>
+                <a href="/">
+                  
+                  Home
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  
+                  Archives
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/saierti">
+                  
+                  Github
+                  
+                </a>
+              </li>
+            
+              <li>
+                <a href="mailto:310320717@qq.com">
+                  
+                  Email
+                  
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <div class="container typo">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-info text-muted">
+          
+            <!-- Author -->
+            <span class="author info">By John Doe</span>
+          
+          <!-- Date -->
+          <span class="date-time info">On
+            <span class="date">2019-07-18</span>
+            <span class="time">14:52:30</span>
+          </span>
+          
+        </div>
+        <!-- Tags -->
+        
+          <div class="post-tags text-muted">
+            Tags: 
+
+<a class="tag" href="/tags/LeetCode/">#LeetCode</a>
+
+
+          </div>
+        
+        <!-- Post Main Content -->
+        <div class="post-content">
+          <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。<br>实例</p>
+<blockquote>
+<p>输入:<br> [<br> 1-&gt;4-&gt;5,<br> 1-&gt;3-&gt;4,<br> 2-&gt;6<br> ]<br>输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</p>
+</blockquote>
+<h2 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h2><p>说来惭愧，本人在初次解题运用的便是暴力解法。<br>暴力解法的思想主要分为三点：</p>
+<ul>
+<li>遍历所有的链表，将所有的节点的值放到一个数组中。</li>
+<li>将这个数组排序，然后遍历所有元素得到正确顺序的值。</li>
+<li>用遍历得到的值，创建一个新的有序链表。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * function ListNode(val) &#123;</span><br><span class="line"> *     this.val = val;</span><br><span class="line"> *     this.next = null;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">/**</span><br><span class="line"> * @param &#123;ListNode[]&#125; lists</span><br><span class="line"> * @return &#123;ListNode&#125;</span><br><span class="line"> */</span><br><span class="line">var mergeKLists = function(lists) &#123;</span><br><span class="line">    var arr = [];</span><br><span class="line">   lists.forEach(e=&gt;&#123;</span><br><span class="line">       console.log(e == null)</span><br><span class="line">       if(e != null)&#123; </span><br><span class="line">           while(e.next != null)&#123;</span><br><span class="line">               arr.push(e.val);</span><br><span class="line">               e = e.next</span><br><span class="line">           &#125;</span><br><span class="line">           if(e.val != undefined)arr.push(e.val);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">    if(arr.length == 0)return null;</span><br><span class="line">    </span><br><span class="line">    arr = arr.sort((a,b)=&gt;&#123;</span><br><span class="line">        return a-b;</span><br><span class="line">    &#125;);</span><br><span class="line">    var list = new ListNode(arr[0]);</span><br><span class="line">    var result = list;</span><br><span class="line">    arr.forEach((e,index)=&gt;&#123;</span><br><span class="line">        if(index &gt; 0)&#123;</span><br><span class="line">            list.next = new ListNode(e);</span><br><span class="line">            list = list.next;</span><br><span class="line">        &#125;     </span><br><span class="line">    &#125;)</span><br><span class="line">    return result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><ul>
+<li><p>时间复杂度：O(NlogN) ，其中 NN 是节点的总数目。</p>
+<ul>
+<li>遍历所有的值需花费 O(N) 的时间。</li>
+<li>一个稳定的排序算法花费 O(NlogN) 的时间。</li>
+<li>遍历同时创建新的有序链表花费 O(N) 的时间。</li>
+</ul>
+</li>
+<li><p>空间复杂度：O(N)。</p>
+<ul>
+<li>排序花费 O(N) 空间（这取决于你选择的算法）。</li>
+<li>创建一个新的链表花费 O(N) 的空间。</li>
+</ul>
+</li>
+</ul>
+<p>毫无疑问，这种算法是很消耗性能的，思路简单但并不推荐。<br>下面介绍一下比较高效的分治法。</p>
+<h2 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h2><ul>
+<li>将k个链表配对并将同一对中的链表合并。</li>
+<li>第一轮合并以后，k个链表被合并成了k/2,平均长度是2N/k，然后是K/4,K/8个链表等等。</li>
+<li>重复这一过程，知道我们得到最终的有序链表。</li>
+</ul>
+<p><img src="../images/leet1.png" alt=""><br>python的代码演示如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def mergeKLists(self, lists):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type lists: List[ListNode]</span><br><span class="line">        :rtype: ListNode</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        amount = len(lists)</span><br><span class="line">        interval = 1</span><br><span class="line">        while interval &lt; amount:</span><br><span class="line">            for i in range(0, amount - interval, interval * 2):</span><br><span class="line">                lists[i] = self.merge2Lists(lists[i], lists[i + interval])</span><br><span class="line">            interval *= 2</span><br><span class="line">        return lists[0] if amount &gt; 0 else lists</span><br><span class="line"></span><br><span class="line">    def merge2Lists(self, l1, l2):</span><br><span class="line">        head = point = ListNode(0)</span><br><span class="line">        while l1 and l2:</span><br><span class="line">            if l1.val &lt;= l2.val:</span><br><span class="line">                point.next = l1</span><br><span class="line">                l1 = l1.next</span><br><span class="line">            else:</span><br><span class="line">                point.next = l2</span><br><span class="line">                l2 = l1</span><br><span class="line">                l1 = point.next.next</span><br><span class="line">            point = point.next</span><br><span class="line">        if not l1:</span><br><span class="line">            point.next=l2</span><br><span class="line">        else:</span><br><span class="line">            point.next=l1</span><br><span class="line">        return head.next</span><br></pre></td></tr></table></figure></p>
+<h4 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><ul>
+<li><p>时间复杂度： O(Nlogk) ，其中 k 是链表的数目。</p>
+<ul>
+<li>我们可以在 O(n) 的时间内合并两个有序链表，其中 nn 是两个链表中的总节点数。</li>
+<li>将所有的合并进程加起来，我们可以得到：<br>$$ O\big(\sum_{i=1}^{log_2k}N \big)=O(Nlogk) $$</li>
+</ul>
+</li>
+<li><p>空间复杂度：O(1)</p>
+<ul>
+<li>我们可以用 O(1) 的空间实现两个有序链表的合并。</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+    <!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <p class="copyright text-muted">
+          Theme By <a target="_blank" href="https://github.com/levblanc">Levblanc.</a>
+          Inspired By <a target="_blank" href="https://github.com/klugjo/hexo-theme-clean-blog">Clean Blog.</a>
+        <p class="copyright text-muted">
+          Powered By <a target="_blank" href="https://hexo.io/">Hexo.</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- After Footer Scripts -->
+<script src="/js/highlight.pack.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var codeBlocks = Array.prototype.slice.call(document.getElementsByTagName('pre'))
+    codeBlocks.forEach(function(block, index) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+
+  </body>
+</html>
+
